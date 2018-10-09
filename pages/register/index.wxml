@@ -1,0 +1,66 @@
+<!--pages/register/index.wxml-->
+<view class='register'>
+  <view class='upload-img'></view>
+  <view class='r-list'>
+    <view class='r-item'>
+      <view class='i-left'>用户名</view>
+      <view class='i-right'>
+        <input type='text'></input>
+      </view>
+    </view>
+    <view class='r-item'>
+      <view class='i-left'>国籍</view>
+      <view class='i-right'>
+        <picker bindchange="contryPickerChange" value="{{index}}" range="{{contries}}" range-key="name">
+          <view class="picker">
+            {{contryActive.name}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class='r-item'>
+      <view class='i-left'>密码</view>
+      <view class='i-right'>
+        <input type='text'></input>
+      </view>
+    </view>
+    <view class='r-item'>
+      <view class='i-left'>邮箱</view>
+      <view class='i-right'>
+        <input type='text'></input>
+      </view>
+    </view>
+    <view class='r-item'>
+      <view class='i-left'>用户类型</view>
+      <view class='i-right'>
+        <input type='text'></input>
+      </view>
+    </view>
+    <view class='r-item'>
+      <view class='i-left'>母语</view>
+      <view class='i-right'>
+        <input type='text'></input>
+      </view>
+    </view>
+    <view class='r-item'>
+      <view class='i-left'>性别</view>
+      <view class='i-right'>
+        <picker bindchange="sexPickerChange" value="{{index}}" range="{{sexs}}" range-key="name">
+          <view class="picker">
+            {{sexActive.name}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class='r-item r-self-desc'>
+      <view class='i-left'>自我介绍</view>
+      <view class='i-right'>
+        <textarea class='r-textarea'></textarea>
+      </view>
+    </view>
+   
+  </view>
+   <view> 
+      <button class='sub-btn'>提交</button>
+    </view>
+</view>

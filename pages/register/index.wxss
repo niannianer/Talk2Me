@@ -1,0 +1,36 @@
+/* pages/register/index.wxss */
+.register{
+padding: 0 30rpx;
+}
+
+.register .upload-img{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+}
+.register .r-item{
+  display: flex;
+  flex-direction: row;
+  min-height: 88rpx;
+  line-height: 88rpx;
+  border-bottom: 2rpx solid #ccc;
+  font-size: 30rpx;
+}
+.register .i-left{
+  width: 120rpx;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+.register .i-right{
+  flex-grow: 1;
+  align-content: right;
+  text-align: right;
+}
+.register .r-item.r-self-desc{
+  display: flex;
+  flex-direction: column;
+}
+.register .r-textarea{
+  border: 2rpx solid #ccc;
+  height: 300rpx;
+}
