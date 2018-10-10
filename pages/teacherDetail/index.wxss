@@ -1,0 +1,87 @@
+/* pages/teacherDetail/index.wxss */
+
+.base-info{
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  padding: 20rpx 32rpx;
+  font-size: 30rpx;
+  margin-bottom: 20rpx;
+}
+.base-info .name{
+  font-size: 42rpx;
+  color: #333;
+  font-weight: bold;
+}
+.tc-detail .split{
+  color: #eee;
+  margin: 0 16rpx;
+}
+.tc-detail .four-info{
+  display: flex;
+  flex-direction: row;
+  font-size: 28rpx;
+  margin-top: 20rpx;
+}
+.tc-detail .b-left{
+  flex-grow: 1;
+}
+.tc-detail .b-right{
+  display: flex;
+  flex-direction: column;
+}
+.tc-detail .avatry{
+  background: red;
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 50%;
+}
+.tc-detail .star-info{
+  display: flex;
+  flex-direction: row;
+  margin-top: 50rpx;
+}
+.tc-detail .star{
+  width: 40rpx;
+  height: 40rpx;
+}
+.tc-detail .course-info{
+  margin-top: 20rpx;
+}
+.tc-detail .lang-text{
+  color: #999;
+  width: 120rpx;
+  display: inline-block;
+  text-align: right;
+}
+.tc-detail .course-item{
+  margin-top: 20rpx;
+}
+.tc-detail .btn-box{
+  display: flex;
+  flex-direction: column;
+}
+.tc-detail .b-btn{
+  background: blue;
+  color: #fff;
+  font-size: 30rpx;
+  width: 140rpx;
+  padding: 0;
+  margin-top: 20rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.self-desc{
+  background: #fff;
+  padding: 32rpx;
+}
+.self-desc .title{
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+.self-desc .content{
+  font-size: 30rpx;
+  text-indent: 30rpx;
+  padding: 10rpx 0;
+}

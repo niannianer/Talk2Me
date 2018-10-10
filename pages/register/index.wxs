@@ -1,0 +1,17 @@
+// const app = getApp()
+// var zh_CN = function(){
+//   return {
+//     userName: '用户名'
+//   }
+// }
+
+// var en = function(){
+//   return {
+//     userName: 'user name'
+//   }
+// }
+
+module.exports = {
+  userName: '用户名',
+  userNamePlace: '请输入用户名'
+}

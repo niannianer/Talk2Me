@@ -1,11 +1,13 @@
 <!--pages/register/index.wxml-->
 <view class='register'>
-  <view class='upload-img'></view>
+  <view class='upload-img'>
+    <image class='upload-inner' bindtap='uploadImg' src="{{avatry}}"></image>
+  </view>
   <view class='r-list'>
     <view class='r-item'>
       <view class='i-left'>用户名</view>
       <view class='i-right'>
-        <input type='text'></input>
+        <input type='text' placeholder='请输入用户名'></input>
       </view>
     </view>
     <view class='r-item'>
@@ -21,25 +23,29 @@
     <view class='r-item'>
       <view class='i-left'>密码</view>
       <view class='i-right'>
-        <input type='text'></input>
+        <input type='text' placeholder='请输入密码'></input>
       </view>
     </view>
     <view class='r-item'>
       <view class='i-left'>邮箱</view>
       <view class='i-right'>
-        <input type='text'></input>
+        <input type='text' placeholder='请输入邮箱'></input>
       </view>
     </view>
     <view class='r-item'>
       <view class='i-left'>用户类型</view>
       <view class='i-right'>
-        <input type='text'></input>
+        <picker bindchange="userTypePickerChange" value="{{index}}" range="{{userTypes}}" range-key="name">
+          <view class="picker">
+            {{userTypeActive.name}}
+          </view>
+        </picker>
       </view>
     </view>
     <view class='r-item'>
       <view class='i-left'>母语</view>
       <view class='i-right'>
-        <input type='text'></input>
+        <input type='text' placeholder='请输入母语'></input>
       </view>
     </view>
     <view class='r-item'>
@@ -55,7 +61,7 @@
     <view class='r-item r-self-desc'>
       <view class='i-left'>自我介绍</view>
       <view class='i-right'>
-        <textarea class='r-textarea'></textarea>
+        <textarea class='r-textarea' placeholder='请输入自我介绍'></textarea>
       </view>
     </view>
    

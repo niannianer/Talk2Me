@@ -2,7 +2,9 @@
   "pages": [
     "pages/register/index",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/teacherList/index",
+    "pages/teacherDetail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

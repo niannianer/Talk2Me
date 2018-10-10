@@ -1,0 +1,46 @@
+<!--pages/teacherDetail/index.wxml-->
+<view class='tc-detail'>
+  <view class='base-info'>
+    <view class='b-left'>
+      <view class='name'>John Smith</view>
+      <view class='four-info'>
+        男<view class='split'>|</view>
+        55<view class='split'>|</view>
+        美国<view class='split'>|</view>
+        英语
+      </view>
+      <view class='star-info'>
+        <image src="../../../images/star.jpg" class='star'></image>
+        <image src="../../../images/star.jpg" class='star'></image>
+        <image src="../../../images/star.jpg" class='star'></image>
+        <image src="../../../images/star.jpg" class='star'></image>
+      </view>
+      <view class='course-info'>
+        <view class='course-title'>授课时间</view>
+        <view class='course-item'>
+          <text class='lang-text'>英语：</text>256小时
+        </view>
+        <view class='course-item'>
+          <text class='lang-text'>西班牙：</text>256小时
+        </view>
+      </view>
+    </view>
+    <view class='b-right'>
+      <image class='avatry'></image>
+      <view class='btn-box'>
+        <button class="b-btn">预订</button>
+        <button class="b-btn">收藏</button>
+      </view>
+    </view>
+  </view>
+
+  <view class='self-desc'>
+    <view class='title'>自我介绍</view>
+    <view class='content'>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget.
+    </view>
+    <view>
+        <view></view>
+    </view>
+  </view>
+</view>

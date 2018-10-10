@@ -33,7 +33,16 @@ App({
       }
     })
   },
+  getSystemInfo: function(){
+    let that = this;
+    wx.getSystemInfo({
+      success: function (res) {
+        that.globalData.language = res.language
+      }
+    })
+  },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    language: null
   }
 })
