@@ -2,6 +2,7 @@
 .register{
   padding: 0 30rpx 30rpx;
   font-size: 30rpx;
+  background: #fff;
 }
 
 .register .upload-img{

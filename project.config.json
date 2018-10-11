@@ -38,7 +38,8 @@
 				{
 					"id": -1,
 					"name": "教师详情",
-					"pathName": "pages/teacherDetail/index"
+					"pathName": "pages/teacherDetail/index",
+					"query": ""
 				}
 			]
 		}

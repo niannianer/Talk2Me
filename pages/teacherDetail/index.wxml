@@ -1,6 +1,6 @@
 <!--pages/teacherDetail/index.wxml-->
 <view class='tc-detail'>
-  <view class='base-info'>
+  <view class='base-info dl-item'>
     <view class='b-left'>
       <view class='name'>John Smith</view>
       <view class='four-info'>
@@ -34,13 +34,46 @@
     </view>
   </view>
 
-  <view class='self-desc'>
+  <view class='self-desc dl-item'>
     <view class='title'>自我介绍</view>
-    <view class='content'>
+    <view class='desc'>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget.
     </view>
     <view>
         <view></view>
     </view>
+  </view>
+  <view class='tc-comment dl-item'>
+    <view class='title'>评价</view>
+    <view class='cm-level'>
+      <text>好评 12条</text>
+      <text>中评 12条</text>
+      <text>差评 12条</text>
+    </view>
+    <view class='comment-list'>
+     <view class='cm-li' wx:for="{{commentList}}" wx:key="index">
+      <view class='total-text'>{{item.title}}</view>
+      <view class='ndt'>
+        <text>{{item.name}}</text><view class='split'>|</view>
+        <text>{{item.time}}</text><view class='split'>|</view>
+        <text>{{item.type}}</text>
+      </view>
+      <view class='desc'>{{item.comment}}</view>
+     </view>
+    </view>
+  </view>
+  <view class='line-time dl-item'>
+    <view class='title'>在线时间</view>
+    <view class="panel flex-column">
+  <view class="flex-cell flex-row" wx:for="{{courseList}}" wx:key="index">
+    <text class="flex-cell flex-row">{{item.dayOne}}</text>
+    <text class="flex-cell flex-row">{{item.dayTwo}}</text>
+    <text class="flex-cell flex-row">{{item.dayThree}}</text>
+    <text class="flex-cell flex-row">{{item.dayFour}}</text>
+    <text class="flex-cell flex-row">{{item.dayFive}}</text>
+    <text class="flex-cell flex-row">{{item.daySix}}</text>
+    <text class="flex-cell flex-row">{{item.daySeven}}</text>
+  </view>
+</view>
   </view>
 </view>
