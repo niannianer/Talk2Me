@@ -33,13 +33,18 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 1,
 			"list": [
 				{
 					"id": -1,
 					"name": "教师详情",
 					"pathName": "pages/teacherDetail/index",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "教师列表",
+					"pathName": "pages/teacherList/index"
 				}
 			]
 		}

@@ -1,0 +1,32 @@
+/* components/selectItem/index.wxss */
+.toogle-wrap{
+  position: relative;
+}
+.toggle-bar{
+  font-size: 28rpx;
+  color: #666;
+  height: 88rpx;
+  line-height: 88rpx;
+}
+.select-list-wrap{
+  background: rgba(0,0,0,.5);
+  position: fixed;
+  top: 90rpx;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: #666;
+}
+.select-list{
+  background: #fff;
+  padding: 0 32rpx;
+}
+.select-list-wrap .s-item{
+  border-bottom: 1rpx solid #eee;
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 28rpx;
+}
+.select-list-wrap .s-item .active{
+  color: #4164E1;
+}

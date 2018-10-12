@@ -1,1 +1,13 @@
 /* pages/teacherList/index.wxss */
+.teacher-list .search-bar{
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+  border-bottom: 1rpx solid #eee;
+}
+.search-bar .b-item{
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}

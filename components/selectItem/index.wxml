@@ -1,0 +1,15 @@
+<!--components/selectItem/index.wxml-->
+<view class='toogle-wrap' bindtap='closeWrap'>
+<view class="toggle-bar {{openActive==currentSearch.typeName?'arrow-up':'arrow-down'}}" catchtap='toogleItem'>
+  {{currentSearch.name}}
+</view>
+
+<view class='select-list-wrap' hidden='{{openActive!=currentSearch.typeName}}'>
+  <view class='select-list'>
+   <view wx:for="{{currentSearch.selectArray}}" wx:key="{{index}}" wx:for-item="item" class='s-item' bindtap='selectItem' data-index="{{index}}">
+    <text class='{{currentSearch.activeItem == item.value&&openActive==currentSearch.typeName ? "active": ""}}'>{{item.name}}</text>
+   </view>
+  </view>
+ 
+</view>
+</view>

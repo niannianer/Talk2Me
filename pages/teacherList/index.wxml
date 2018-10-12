@@ -1,4 +1,9 @@
 <!--pages/teacherList/index.wxml-->
-<view class='teacher'>
-  
+<view class='teacher-list'>
+  <view class='search-bar'>
+  <component-selectItem typeName="language" class="b-item" bind:selectItem="selectItem" bind:toogleItem="toogleItem" tabOtherSearch="{{tabOtherSearch}}"></component-selectItem>
+  <component-selectItem typeName="zoom" class="b-item" bind:selectItem="selectItem" bind:toogleItem="toogleItem" tabOtherSearch="{{tabOtherSearch}}"></component-selectItem>
+  <component-selectItem typeName="prices" class="b-item" bind:selectItem="selectItem" bind:toogleItem="toogleItem" tabOtherSearch="{{tabOtherSearch}}"></component-selectItem>
+  <component-selectItem typeName="onlineTime" class="b-item" bind:selectItem="selectItem" bind:toogleItem="toogleItem" tabOtherSearch="{{tabOtherSearch}}"></component-selectItem>
+  </view>
 </view>
