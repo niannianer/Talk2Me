@@ -16,6 +16,7 @@
   left: 0;
   right: 0;
   color: #666;
+  z-index: 10;
 }
 .select-list{
   background: #fff;

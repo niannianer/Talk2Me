@@ -1,0 +1,7 @@
+<!-- loading页 -->
+<template name="loading">
+<view class="loadingImg">
+  <image class='gif' src="../../images/loading.gif"></image>
+</view>
+</template>
+

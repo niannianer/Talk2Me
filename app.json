@@ -4,12 +4,16 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/teacherList/index",
-    "pages/teacherDetail/index"
+    "pages/teacherDetail/index",
+    "pages/mine/index",
+    "pages/teacherEdit/index",
+    "pages/teacherCourses/index",
+    "pages/comment/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#4164E1",
+    "navigationBarTitleText": "智联招聘",
+    "navigationBarTextStyle": "white"
   }
 }

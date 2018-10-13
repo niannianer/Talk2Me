@@ -1,0 +1,52 @@
+/* component/no-resume/no-resume.wxss */
+
+.noresume-wrap {
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  position: absolute;
+  top: 0;
+}
+
+.main {
+  background-color: white;
+  /* height: 100%; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  margin-top: 90rpx;
+}
+.main.nomargintop{
+  margin-top: 0
+}
+
+.img {
+  /* margin-top:98rpx; */
+  width: 600rpx;
+  height: 327rpx;
+  /* margin-left: 75rpx; */
+  margin: 0 auto;
+  display: block;
+}
+
+.text {
+  text-align: center;
+  color: #666;
+  font-family: PingFangSC-Semibold;
+  font-size: 32rpx;
+}
+
+.text1 {
+  text-align: center;
+  color: #999;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+}
+
+.button {
+  color: #4164e1;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+}

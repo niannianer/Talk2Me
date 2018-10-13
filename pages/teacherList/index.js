@@ -5,7 +5,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tabOtherSearch: false
+    tabOtherSearch: false,
+    teacherList: [{
+      name: 'John Smith',
+      avatar: '',
+      language: 'English、Spanish',
+      star: 3,
+      lessons: '18.30',
+      price: '0.50'
+    }, {
+      name: 'John Smith',
+      avatar: '',
+      language: 'English、Spanish',
+      star: 3,
+      lessons: '18.30',
+      price: '0.50'
+    }]
   },
 
   /**

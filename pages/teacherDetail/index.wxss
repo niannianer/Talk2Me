@@ -95,62 +95,7 @@
   background: #fff;
   margin-top: 20rpx;
 }
-.cm-li{
-  font-size: 28rpx;
-  color: #666;
-  margin-bottom: 30rpx;
-  border-bottom: 1rpx solid #eee;
-  padding-bottom: 10rpx;
-}
-.cm-li .total-text{
-  font-size: 30rpx;
-  color: #333;
-  margin-bottom: 10rpx;
-}
-.cm-li .ndt{
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 10rpx;
-}
-.cm-level{
-  display: flex;
-  flex-direction: row;
-  font-size: 28rpx;
-  margin-bottom: 20rpx;
-}
-.cm-level text{
-  margin-right: 30rpx;
-}
-.panel{
-  height:240rpx;
-  background:#fff;
-}
 
-.panel text{
-  height: 80rpx;
-  border-right: 1rpx solid #ddd;
-  border-bottom: 1rpx solid #ddd;
-  text-align: center;
-}
-
-.flex-row{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-.flex-column{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: stretch;
-  border-top: 1rpx solid #ddd;
-  border-left: 1rpx solid #ddd;
-}
-
-.flex-cell{
-  flex: 1;
-}
 .line-time{
   font-size: 24rpx;
 }

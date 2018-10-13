@@ -1,0 +1,71 @@
+<!--pages/teacherEdit/index.wxml-->
+<view class='teacher-edit'>
+  <view class='upload-img'>
+    <image class='upload-inner' bindtap='uploadImg' src="{{avatry}}"></image>
+  </view>
+  <view class='r-list'>
+    <view class='r-item'>
+      <view class='i-left'>姓名</view>
+      <view class='i-right'>
+        <input type='text' placeholder='请输入姓名'></input>
+      </view>
+    </view>
+    <view class='r-item'>
+      <view class='i-left'>国籍</view>
+      <view class='i-right'>
+        <picker bindchange="contryPickerChange" value="{{index}}" range="{{contries}}" range-key="name">
+          <view class="picker">
+            {{contryActive.name}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class='r-item'>
+      <view class='i-left'>母语</view>
+      <view class='i-right'>
+        <picker bindchange="contryPickerChange" value="{{index}}" range="{{contries}}" range-key="name">
+          <view class="picker">
+            {{contryActive.name}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class='r-item'>
+      <view class='i-left'>性别</view>
+      <view class='i-right'>
+        <picker bindchange="sexPickerChange" value="{{index}}" range="{{sexs}}" range-key="name">
+          <view class="picker">
+            {{sexActive.name}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class='r-item'>
+      <view class='i-left'>出生日期</view>
+      <view class='i-right'>
+        <input type='text' placeholder='请输入密码'></input>
+      </view>
+    </view>
+    <view class='r-item'>
+      <view class='i-left'>邮箱</view>
+      <view class='i-right'>
+        <input type='text' placeholder='请输入邮箱'></input>
+      </view>
+    </view>
+    <view class='r-item'>
+      <view class='i-left'>授课内容</view>
+      <view class='i-right arrow-right'>
+        英语、日语
+      </view>
+    </view>
+    <view class='r-item r-self-desc'>
+      <view class='i-left'>自我介绍</view>
+      <view class='i-right'>
+        <textarea class='r-textarea' placeholder='请输入自我介绍'></textarea>
+      </view>
+    </view>
+  </view>
+   <view> 
+      <button class='sub-btn'>提交</button>
+    </view>
+</view>

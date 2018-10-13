@@ -111,7 +111,8 @@ Component({
       })
     },
     closeWrap: function(){
-      this.setData({
+      const that = this;
+      that.setData({
         openActive: ''
       })
     }

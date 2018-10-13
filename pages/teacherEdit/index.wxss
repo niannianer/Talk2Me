@@ -1,0 +1,74 @@
+/* pages/teacherEdit/index.wxss */
+.teacher-edit{
+  padding: 0 30rpx 30rpx;
+  font-size: 30rpx;
+  background: #fff;
+}
+
+.teacher-edit .upload-img{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.teacher-edit .upload-inner{
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 50%;
+  background: blue;
+  margin-bottom: 20rpx;
+}
+.teacher-edit .r-item{
+  display: flex;
+  flex-direction: row;
+  min-height: 88rpx;
+  line-height: 88rpx;
+  border-bottom: 2rpx solid #eee;
+  font-size: 30rpx;
+}
+.teacher-edit .i-left{
+  width: 180rpx;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+.teacher-edit .i-right{
+  flex-grow: 1;
+  display:flex;
+  align-items:center;
+}
+.teacher-edit .r-item.r-self-desc{
+  display: flex;
+  flex-direction: column;
+}
+.teacher-edit .r-textarea{
+  border: 2rpx solid #eee;
+  height: 200rpx;
+  text-align: left;
+  padding: 6rpx 10rpx;
+  width: 100%;
+}
+.teacher-edit .sub-btn{
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #4f6;
+  font-size: 30rpx;
+  margin: 30rpx 0;
+  border-radius: 4rpx;
+  color: #fff;
+}
+.teacher-edit .i-right.arrow-right{
+  position: relative;
+  text-align: right;
+}
+.teacher-edit .i-right:after {
+  content: "";
+  display: block;
+  width: 14rpx;
+  height: 14rpx;
+  border-top: 2rpx solid #bbb;
+  border-left: 2rpx solid #bbb;
+  transform-origin: 50%;
+  transform: rotate(135deg);
+  position: absolute;
+  top: 36rpx;
+  right: 10rpx;
+}

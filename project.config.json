@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 5,
 			"list": [
 				{
 					"id": -1,
@@ -44,7 +44,31 @@
 				{
 					"id": -1,
 					"name": "教师列表",
-					"pathName": "pages/teacherList/index"
+					"pathName": "pages/teacherList/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/mine/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "教师个人信息编辑",
+					"pathName": "pages/teacherEdit/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "教师课程",
+					"pathName": "pages/teacherCourses/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "评价列表",
+					"pathName": "pages/comment/index"
 				}
 			]
 		}

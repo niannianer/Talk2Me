@@ -6,4 +6,23 @@
   <component-selectItem typeName="prices" class="b-item" bind:selectItem="selectItem" bind:toogleItem="toogleItem" tabOtherSearch="{{tabOtherSearch}}"></component-selectItem>
   <component-selectItem typeName="onlineTime" class="b-item" bind:selectItem="selectItem" bind:toogleItem="toogleItem" tabOtherSearch="{{tabOtherSearch}}"></component-selectItem>
   </view>
+  <scroll-view scroll-y="true" class='list-wrap'>
+    <view class='t-item' wx:for="{{teacherList}}" wx:key="{{index}}" wx:for-item="item" >
+      <view class='i-left'>
+      <image class='avatar-img' src="{{item.avatar}}"></image>
+      </view>
+      <view class='i-right'>
+        <view class='name'>{{item.name}}</view>
+        <view class="r-info">{{item.language}}</view>
+        <view class='star-info'>
+          <image src="../../images/star.jpg" class='star'></image>
+          <image src="../../images/star.jpg" class='star'></image>
+          <image src="../../images/star.jpg" class='star'></image>
+          <image src="../../images/star.jpg" class='star'></image>
+      </view>
+      <view class='r-info'>Had lessons:{{item.lessons}}min</view>
+      <view class='r-info'>Price:{{item.price}}USD/min</view>
+      </view>
+    </view>
+  </scroll-view>
 </view>

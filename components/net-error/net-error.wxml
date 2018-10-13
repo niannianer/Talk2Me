@@ -1,0 +1,10 @@
+<view class="error-wrap">
+  <view class='error-box'>
+    <image src='https://img09.zhaopin.cn/IHRNB/b-wechat/empty-2.png' class='img'></image>
+  <view class='text'>
+    <label>{{errorText || '网络出错了'}}，请点击
+      <text class='button' bindtap='aginEvent'>重试</text>
+    </label>
+  </view>
+  </view>
+</view>

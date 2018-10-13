@@ -1,0 +1,20 @@
+<!--components/comment/index.wxml-->
+<view class='tc-comment dl-item'>
+    <view class='title'>评价</view>
+    <view class='cm-level'>
+      <text>好评 12条</text>
+      <text>中评 12条</text>
+      <text>差评 12条</text>
+    </view>
+    <view class='comment-list'>
+     <view class='cm-li' wx:for="{{commentList}}" wx:key="index">
+      <view class='total-text'>{{item.title}}</view>
+      <view class='ndt'>
+        <text>{{item.name}}</text><view class='split'>|</view>
+        <text>{{item.time}}</text><view class='split'>|</view>
+        <text>{{item.type}}</text>
+      </view>
+      <view class='desc'>{{item.comment}}</view>
+     </view>
+    </view>
+  </view>

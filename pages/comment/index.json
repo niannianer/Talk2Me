@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "教师详情",
+  "navigationBarTitleText": "评价列表",
   "usingComponents": {
     "component-comment": "/components/comment/index"
   }

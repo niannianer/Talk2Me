@@ -1,0 +1,32 @@
+/* component/net-error/net-error.wxss */
+
+.error-wrap {
+  background-color: white;
+  height: 100%;
+  position: relative;
+}
+.error-box{
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%,-50%)
+}
+.img {
+  width: 500rpx;
+  height: 281rpx;
+  margin: 0 auto;
+  display: block;
+}
+
+.text {
+  text-align: center;
+  color: #999;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+}
+
+.button {
+  color: #4164e1;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+}

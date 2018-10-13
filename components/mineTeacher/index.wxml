@@ -1,0 +1,83 @@
+<!--components/mineTeacher/index.wxml-->
+<!--pages/home/usercenter.wxml-->
+<import src="../../templates/loading/loading.wxml" />
+
+<!-- loading  -->
+<view wx:if="{{isLoading && isLogin}}" style="width:100%;height:100%;">
+  <template is="loading" />
+</view>
+
+<view class='mine-teacher' wx:if="{{!isLoading}}">
+  <view class='user-info'>
+    <view class='avatar-box'>
+      <image class='avatar' mode="aspectFit" src="{{avatar}}"></image>
+    </view>
+    <view class='name-box'>
+      <view class='user-name'>{{name}}</view>
+      <view class='user-type'>
+        <block wx:if="{{isLogin}}">
+          <image src='{{wxs.role_admin}}' wx:if="{{staffRole == 100 || staffRole == 102}}" mode='aspectFit' class='icon'></image>
+          <image src='{{wxs.role_super}}' wx:elif="{{staffRole == 101}}" mode='aspectFit' class='icon'></image>
+          <image src='{{wxs.role_general}}' wx:else mode='aspectFit' class='icon'></image>
+          念念
+        </block>
+        <block wx:else>
+          <view>未绑定账号</view>
+        </block>
+      </view>
+    </view>
+  </view>
+
+  <view class='asset-wrap'>
+    <view class='number-info'>
+      <view class='num-item'>
+        <view class='num-bold'>{{userInfo.balanceCount || 0}}</view>
+        <view class='num-text'>剩余智联币(个)</view>
+      </view>
+      <view class='num-item'>
+        <view class='num-bold'>{{userInfo.downloadCount || 0}}</view>
+        <view class='num-text'>剩余下载(次)</view>
+      </view>
+      <view class='num-item'>
+        <view class='num-bold'>{{userInfo.refreshCount || 0}}</view>
+        <view class='num-text'>剩余刷新(次)</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='work-wrap'>
+    <view class='item' bindtap='toEnterprise'>
+      <view class='left'>
+        <image src='../../images/me-job-bund.png' mode='aspectFit' class='icon'></image>
+        教师课程表
+      </view>
+      <view class='right org-name'>{{userInfo.orgName}}</view>
+    </view>
+    <view class='item' bindtap='handTo'>
+      <view class='left'>
+        <image src='../../images/me-enterprise.png' mode='aspectFit' class='icon'></image>
+        学生评价
+      </view>
+      <view class='right'></view>
+    </view>
+    <view class='item' bindtap='toUnbund' wx:if="{{isLogin}}">
+      <view class='left'>
+        <image src='{{wxs.lock}}' mode='aspectFit' class='icon'></image>
+        账号解绑
+      </view>
+      <view class='right'></view>
+    </view>
+  </view>
+  <view class='work-wrap' wx:if="{{userInfo.saleInfo.name}}" bindtap='makePhoneCall'>
+    <view class='item'>
+      <view class='left'>
+        <image src='{{wxs.mobile}}' mode='aspectFit' class='icon'></image>
+        联系专属顾问
+      </view>
+      <view class='right'>{{userInfo.saleInfo.name}}</view>
+    </view>
+  </view>
+
+  <button class="quick-bind-btn" wx:if="{{!isLogin}}" bindtap="quickBind">账号绑定</button>
+</view>
+

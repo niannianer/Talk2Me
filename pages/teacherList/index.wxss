@@ -11,3 +11,37 @@
   justify-content: center;
   display: flex;
 }
+.t-item{
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+  padding: 32rpx;
+  margin-top: 10rpx;
+}
+.list-wrap .avatar-img{
+  width: 160rpx;
+  height: 160rpx;
+  background: red;
+  border-radius: 4rpx;
+}
+.list-wrap .i-right{
+   padding-left: 32rpx;
+   font-size: 30rpx;
+   color: #666;
+}
+.list-wrap .name{
+  color: #333;
+  font-size: 34rpx;
+}
+.list-wrap .star-info{
+  display: flex;
+  flex-direction: row;
+  margin-top: 20rpx;
+}
+.list-wrap .star{
+  width: 40rpx;
+  height: 40rpx;
+}
+.list-wrap .r-info{
+  margin-top: 6rpx;
+}
