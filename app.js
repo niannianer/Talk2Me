@@ -1,4 +1,6 @@
 //app.js
+var chinese = require("utils/zh.js")
+var english = require("utils/en.js")
 App({
   onLaunch: function () {
     // 展示本地存储能力
@@ -32,14 +34,27 @@ App({
         }
       }
     })
+    this.getSystemInfo();
   },
   getSystemInfo: function(){
     let that = this;
     wx.getSystemInfo({
       success: function (res) {
+        console.log(res)
         that.globalData.language = res.language
       }
     })
+  },
+  getLanuage: function (_that) {
+    if (this.globalData.language == "zh_CN") {
+      _that.setData({
+        lang: chinese.language()
+      })
+    } else {
+      _that.setData({
+        lang: english.language()
+      })
+    }
   },
   globalData: {
     userInfo: null,

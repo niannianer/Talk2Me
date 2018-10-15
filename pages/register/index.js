@@ -1,4 +1,5 @@
 // pages/register/index.js
+const app = getApp()
 Page({
 
   /**
@@ -11,13 +12,15 @@ Page({
     sexs: [],
     userTypeActive: {},
     userTypes: [],
-    avatry: ''
+    avatry: '',
+    lang: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    app.getLanuage(this);
     this.setInitData()
   },
 

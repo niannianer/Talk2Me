@@ -1,19 +1,44 @@
 {
   "pages": [
+    "pages/mine/index",
     "pages/register/index",
     "pages/index/index",
     "pages/logs/logs",
     "pages/teacherList/index",
     "pages/teacherDetail/index",
-    "pages/mine/index",
     "pages/teacherEdit/index",
     "pages/teacherCourses/index",
-    "pages/comment/index"
+    "pages/comment/index",
+    "pages/stutends/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#4164E1",
     "navigationBarTitleText": "智联招聘",
     "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#4164e1",
+    "list": [
+      {
+        "selectedIconPath": "images/menu-zrc1.png",
+        "iconPath": "images/menu-zrc.png",
+        "pagePath": "pages/stutends/index",
+        "text": "学生"
+      },
+      {
+        "selectedIconPath": "images/menu-hxr1.png",
+        "iconPath": "images/menu-hxr.png",
+        "pagePath": "pages/teacherList/index",
+        "text": "教师列表"
+      },
+      {
+        "selectedIconPath": "images/menu-wd1.png",
+        "iconPath": "images/menu-wd.png",
+        "pagePath": "pages/mine/index",
+        "text": "我的"
+      }
+    ]
   }
 }

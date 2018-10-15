@@ -1,11 +1,13 @@
 <!--pages/register/index.wxml-->
+<wxs src="index.wxs" module="wxs" />
+
 <view class='register'>
   <view class='upload-img'>
     <image class='upload-inner' bindtap='uploadImg' src="{{avatry}}"></image>
   </view>
   <view class='r-list'>
     <view class='r-item'>
-      <view class='i-left'>用户名</view>
+      <view class='i-left'>{{lang.userName}}</view>
       <view class='i-right'>
         <input type='text' placeholder='请输入用户名'></input>
       </view>
