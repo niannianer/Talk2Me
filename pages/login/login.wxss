@@ -1,0 +1,131 @@
+.container-login {
+  padding: 140rpx 48rpx 0;
+}
+
+.form {
+  display: block;
+}
+
+.form .title {
+  font-family: PingFangSC-Semibold;
+  font-size: 56rpx;
+  color: #333;
+  letter-spacing: 2.33rpx;
+}
+
+.form .subTitle {
+  font-family: PingFangSC-Regular;
+  margin-top: 36rpx;
+  margin-bottom: 180rpx;
+  font-size: 40rpx;
+  color: #999;
+  letter-spacing: 2rpx;
+}
+
+.form text {
+  opacity: 0.99;
+  font-size: 26rpx;
+  color: #999;
+}
+
+.form input {
+  height: 80rpx;
+  flex-grow: 3;
+  font-size: 36rpx;
+  color: #333;
+}
+
+.password {
+  margin-top: 40rpx;
+}
+
+.loginBtn {
+  font-size: 32rpx;
+  background: #4164e1;
+  color: #fff;
+  margin-top: 104rpx;
+  border-radius: 8rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+}
+
+.loginBtn[disabled]:not([type]) {
+  background: #4164e1;
+  color: #a0b1f0;
+}
+
+.phoneNumber, .password, .code {
+  padding-bottom: 10rpx;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.code {
+  margin-top: 40rpx;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: space-between;
+}
+
+.code input {
+  width: 300rpx;
+}
+
+.code image {
+  width: 200rpx;
+  height: 69rpx;
+}
+
+.clear-username image {
+  width: 28rpx;
+  height: 28rpx;
+}
+
+.toggle-password image {
+  width: 32rpx;
+  height: 19rpx;
+}
+
+.clear-username {
+  width: 80rpx;
+  height: 80rpx;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle-password {
+  width: 80rpx;
+  height: 80rpx;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inputPhone {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  opacity: 0.99;
+  font-family: PingFangSC-Regular;
+  font-size: 36rpx;
+  color: #333;
+  letter-spacing: 2.25rpx;
+}
+
+.register {
+  margin-top: 48rpx;
+  font-family: PingFangSC-Light;
+  font-size: 28rpx;
+  line-height: 28rpx;
+  color: #666;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+.placeholder-class {
+  opacity: 0.99;
+  font-family: PingFangSC-Light;
+  font-size: 28rpx;
+  color: #ccc;
+  letter-spacing: 1.75rpx;
+}

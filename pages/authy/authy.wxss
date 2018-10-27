@@ -1,0 +1,26 @@
+/* pages/authy/authy.wxss */
+.container{
+  padding-top: 120rpx;
+}
+.logo{
+  display:block;
+  width:200rpx;
+  height:200rpx;
+  margin: 0 auto;
+  background: red;
+}
+text{
+  width: 504rpx;
+  font-size: 28rpx;
+  line-height: 46rpx;
+  color: #666;
+  letter-spacing: 0;
+  text-align: center;
+  display: block;
+  margin: 130rpx auto 60rpx auto;
+}
+.authorityBtn{
+  background: #4164E1;
+  color: #fff;
+  font-size: 32rpx;
+}

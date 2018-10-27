@@ -1,0 +1,6 @@
+<!--pages/authy/authy.wxml-->
+<view class="container">
+    <image class="logo" mode="aspectFill" ></image>
+    <text>依据《网络安全法》，为确保您账户安全和正常使用，保障合法权益，请完成微信手机号授权验证</text>
+    <button class="authorityBtn" open-type="getUserInfo" bindgetuserinfo="getUserInfo">去授权</button>
+</view>

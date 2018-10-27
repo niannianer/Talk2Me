@@ -1,6 +1,6 @@
 /* pages/teacherEdit/index.wxss */
 .teacher-edit{
-  padding: 0 30rpx 30rpx;
+  padding: 20rpx 30rpx 30rpx;
   font-size: 30rpx;
   background: #fff;
 }
@@ -47,11 +47,11 @@
   width: 100%;
 }
 .teacher-edit .sub-btn{
-  height: 80rpx;
-  line-height: 80rpx;
-  background: #4f6;
-  font-size: 30rpx;
-  margin: 30rpx 0;
+  height: 88rpx;
+  line-height: 88rpx;
+  background: #4164E1;
+  font-size: 32rpx;
+  margin: 32rpx 0;
   border-radius: 4rpx;
   color: #fff;
 }
@@ -59,7 +59,7 @@
   position: relative;
   text-align: right;
 }
-.teacher-edit .i-right:after {
+/* .teacher-edit .i-right:after {
   content: "";
   display: block;
   width: 14rpx;
@@ -71,4 +71,15 @@
   position: absolute;
   top: 36rpx;
   right: 10rpx;
+} */
+.picker-wrap{
+  width: 100%;
+  height: 100%;
+}
+.picker{
+  width: 100%;
+  height: 100%;
+}
+.placeholder{
+  color: #bbb;
 }

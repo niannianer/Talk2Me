@@ -99,5 +99,10 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  bookingschedule: function(){
+    wx.navigateTo({
+      url: '/pages/courseEdit/index',
+    })
   }
 })

@@ -7,15 +7,27 @@
     <view class='r-item'>
       <view class='i-left'>姓名</view>
       <view class='i-right'>
-        <input type='text' placeholder='请输入姓名'></input>
+        <input type='text' placeholder='请输入姓名' value="{{realName}}" data-type="realName" bindinput='inputChange'></input>
+      </view>
+    </view>
+    <view class='r-item'>
+      <view class='i-left'>性别</view>
+      <view class='i-right'>
+        <picker bindchange="pickerChange" value="{{index}}" range="{{sexs}}" range-key="name" class='picker-wrap' data-type="gender">
+          <view class="picker">
+            <text wx:if="{{sexActive.name}}">{{sexActive.name}}</text>
+            <text wx:else class='placeholder'>请选择</text>
+          </view>
+        </picker>
       </view>
     </view>
     <view class='r-item'>
       <view class='i-left'>国籍</view>
       <view class='i-right'>
-        <picker bindchange="contryPickerChange" value="{{index}}" range="{{contries}}" range-key="name">
+        <picker bindchange="pickerChange" range="{{contries}}" range-key="name"  class='picker-wrap' data-type="contry">
           <view class="picker">
-            {{contryActive.name}}
+            <text wx:if="{{contryActive.name}}">{{contryActive.name}}</text>
+            <text wx:else class='placeholder'>请选择</text>
           </view>
         </picker>
       </view>
@@ -23,27 +35,18 @@
     <view class='r-item'>
       <view class='i-left'>母语</view>
       <view class='i-right'>
-        <picker bindchange="contryPickerChange" value="{{index}}" range="{{contries}}" range-key="name">
+        <picker bindchange="pickerChange" range="{{firstLanguages}}" range-key="name" class='picker-wrap' data-type="language">
           <view class="picker">
-            {{contryActive.name}}
+            <text wx:if="{{languageActive.name}}">{{languageActive.name}}</text>
+            <text wx:else class='placeholder'>请选择</text>
           </view>
         </picker>
       </view>
     </view>
     <view class='r-item'>
-      <view class='i-left'>性别</view>
+      <view class='i-left'>居住地</view>
       <view class='i-right'>
-        <picker bindchange="sexPickerChange" value="{{index}}" range="{{sexs}}" range-key="name">
-          <view class="picker">
-            {{sexActive.name}}
-          </view>
-        </picker>
-      </view>
-    </view>
-    <view class='r-item'>
-      <view class='i-left'>出生日期</view>
-      <view class='i-right'>
-        <input type='text' placeholder='请输入密码'></input>
+        <input type='text' placeholder='请输入居住城市' bindinput="inputChange" value="{{habitat}}" data-type="habitat"></input>
       </view>
     </view>
     <view class='r-item'>
@@ -52,20 +55,14 @@
         <input type='text' placeholder='请输入邮箱'></input>
       </view>
     </view>
-    <view class='r-item'>
-      <view class='i-left'>授课内容</view>
-      <view class='i-right arrow-right'>
-        英语、日语
-      </view>
-    </view>
     <view class='r-item r-self-desc'>
       <view class='i-left'>自我介绍</view>
       <view class='i-right'>
-        <textarea class='r-textarea' placeholder='请输入自我介绍'></textarea>
+        <textarea class='r-textarea' placeholder='请输入自我介绍' value="{{selfIntroduction}}" data-type="selfIntroduction" bindinput='inputChange'></textarea>
       </view>
     </view>
   </view>
    <view> 
-      <button class='sub-btn'>提交</button>
+      <button class='sub-btn' bindtap='submit'>提交</button>
     </view>
 </view>

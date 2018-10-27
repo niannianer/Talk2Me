@@ -9,12 +9,17 @@
     "pages/teacherEdit/index",
     "pages/teacherCourses/index",
     "pages/comment/index",
-    "pages/stutends/index"
+    "pages/stutends/index",
+    "pages/login/login",
+    "pages/courseEdit/index",
+    "pages/authy/authy",
+    "pages/courseManage/index",
+    "pages/courseUpdate/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#4164E1",
-    "navigationBarTitleText": "智联招聘",
+    "navigationBarTitleText": "Talk2Me",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {

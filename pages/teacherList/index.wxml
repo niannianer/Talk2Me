@@ -1,4 +1,6 @@
 <!--pages/teacherList/index.wxml-->
+<import src="../../templates/loading/loading.wxml" />
+<template is="loading" wx:if="{{isLoading}}"/>
 <view class='teacher-list'>
   <view class='search-bar'>
   <component-selectItem typeName="language" class="b-item" bind:selectItem="selectItem" bind:toogleItem="toogleItem" tabOtherSearch="{{tabOtherSearch}}"></component-selectItem>
@@ -7,12 +9,12 @@
   <component-selectItem typeName="onlineTime" class="b-item" bind:selectItem="selectItem" bind:toogleItem="toogleItem" tabOtherSearch="{{tabOtherSearch}}"></component-selectItem>
   </view>
   <scroll-view scroll-y="true" class='list-wrap'>
-    <view class='t-item' wx:for="{{teacherList}}" wx:key="{{index}}" wx:for-item="item" >
+    <view class='t-item' wx:for="{{teacherList}}" wx:key="{{index}}" wx:for-item="item" data-id="{{item.id}}" bindtap='goDetail'>
       <view class='i-left'>
       <image class='avatar-img' src="{{item.avatar}}"></image>
       </view>
       <view class='i-right'>
-        <view class='name'>{{item.name}}</view>
+        <view class='name'>{{item.username}}</view>
         <view class="r-info">{{item.language}}</view>
         <view class='star-info'>
           <image src="../../images/star.jpg" class='star'></image>
@@ -25,4 +27,8 @@
       </view>
     </view>
   </scroll-view>
+
+  <view class="go_jobadd" bindtap='addCouseHandle'>
+    <image src="https://img09.zhaopin.cn/IHRNB/b-wx-app/add_icon.png" mode="aspectFit" />
+  </view>
 </view>

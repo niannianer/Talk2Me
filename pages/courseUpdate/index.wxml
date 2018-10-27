@@ -1,0 +1,25 @@
+<!--pages/courseEdit/index.wxml-->
+<view class="course-edit">
+  <view class='r-item'>
+    <view class='i-left'>课程名称</view>
+    <view class='i-right' >
+    <picker bindchange="namePickerChange" value="{{index}}" range="{{courseNames}}" range-key="name" class='picker-wrap'>
+        <view class="picker">
+          <text wx:if="{{selectCourseObj.name}}">{{selectCourseObj.name}}</text>
+          <text wx:else class='placeholder'>请选择课程</text>
+        </view>
+      </picker>
+    </view>
+  </view>
+  <view class='r-item'>
+    <view class='i-left'>课程价格</view>
+    <view class='i-right' >
+      <input type='text' value="{{price}}" bindinput='inputChange' placeholder='请输入课程价格' placeholder-class='placeholder'></input>
+    </view>
+  </view>
+    <view class='btn-wrap'>
+      <button class="submit-btn" bindtap='submit'>提交</button>
+    </view>
+    
+</view>
+

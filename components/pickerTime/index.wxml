@@ -1,0 +1,22 @@
+<!--components/pickTime/index.wxml-->
+<view class='picker-city-container'>
+  <view style='width:100%;height:100%;' catchtap='onClose'></view>
+  <view class='picker-city-body'>
+    <view class='picker-city-btnbar'>
+      <text class='picker-city-btnbar-left' bindtap='onClose'>取消</text>
+      <text class='picker-city-btnbar-right' bindtap='onSure'>确定</text>
+      <view style='clear:both'></view>
+    </view>
+    <picker-view indicator-style="height: 50px;" class="picker-city-weight" value="{{selectedIndex}}" bindchange="bindChange">
+      <picker-view-column>
+        <view wx:for="{{yearsList}}" wx:key="{{item}}" class="pick-item" >{{item}}</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{monthsList}}" wx:key="{{item}}" class="pick-item" >{{item}}</view>
+      </picker-view-column>
+      <picker-view-column wx:if="{{deep==3}}">
+        <view wx:for="{{daysList}}" wx:key="{{item}}" class="pick-item">{{item}}</view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+</view>

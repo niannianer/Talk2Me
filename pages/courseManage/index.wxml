@@ -1,0 +1,15 @@
+<!--pages/courseManage/index.wxml-->
+<view class='course-manage'>
+<view class='item title'>
+    <view class='left'>课程名称</view>
+    <view class='right'>价格</view>
+    <view class='operation-btn'>
+      <view class='add-btn' bindtap='addSubmit'>添加</view>
+    </view>
+    </view>
+  <view class='item'>
+    <view class='left'>英语</view>
+    <view class='right'>100元</view>
+    <view class='operation-btn' bindtap='deleteItem'>删除</view>
+  </view>
+</view>

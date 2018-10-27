@@ -1,0 +1,34 @@
+<wxs src="login.wxs" module="wxs" />
+
+<view class="container-login">
+  <view class="form">
+    <view class='title'>Hi,欢迎您</view>
+    <view class='subTitle'>请登录</view>
+    <view class="phoneNumber" style="{{'border-bottom: 1rpx solid' + (fousIndex == 1 ? '#4164E1;' : '#F2F2F2;')}}">
+      <view class="inputPhone">
+        <input wx:if="{{!showPS}}" placeholder-class='placeholder-class' placeholder="输入智联招聘账号" bindinput="changeUsername" value="{{cacheLoginInfo.username}}" maxlength="24" data-index="{{1}}" bindfocus='focus' focus bindblur='blur' adjust-position='true'/>
+        <view class="clear-username" bindtap="clearUsername" wx:if="{{showClearUsername}}">
+          <image src="../../images/closed-circle.png" mode="aspectFit"></image>
+        </view>
+      </view>
+    </view>
+
+    <view class="password" style="{{'border-bottom: 1rpx solid' + (fousIndex == 2 ? '#4164E1;' : '#F2F2F2;')}}">
+      <view class="inputPhone">
+        <input wx:if="{{!showPS && showPassword}}" placeholder-class='placeholder-class' placeholder="输入密码" password="{{!showPassword}}" value="{{cacheLoginInfo.password}}" bindinput="changePassword" data-index="{{2}}" bindfocus='focus' bindblur='blur' adjust-position='true'/>
+        <input wx:if="{{!showPS && !showPassword}}" placeholder-class='placeholder-class' placeholder="输入密码" password="{{!showPassword}}" value="{{cacheLoginInfo.password}}" bindinput="changePassword" data-index="{{2}}" bindfocus='focus' bindblur='blur' adjust-position='true'/>
+        <view class="clear-username" bindtap="clearPassword" wx:if="{{showClearPassword}}">
+          <image src="{{wxs.viewData.closed_circle}}" mode="aspectFit"></image>
+        </view>
+        <view class="toggle-password" bindtap="togglePassword" wx:if="{{showClearPassword}}">
+          <image src="../../images/eye-color.png" mode="aspectFit" wx:if="{{showPassword}}"></image>
+          <image src="../../images/eye-gray.png" mode="aspectFit" wx:else></image>
+        </view>
+      </view>
+    </view>
+
+    <button class="loginBtn" bindtap="login" disabled="{{disabled}}">绑定</button>
+    <!-- <view wx:if="{{isBindOrg}}" class='register' bindtap='toRegister'>注册企业智联账号</view> -->
+  </view>
+</view>
+

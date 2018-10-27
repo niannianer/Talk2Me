@@ -10,10 +10,10 @@
         英语
       </view>
       <view class='star-info'>
-        <image src="../../../images/star.jpg" class='star'></image>
-        <image src="../../../images/star.jpg" class='star'></image>
-        <image src="../../../images/star.jpg" class='star'></image>
-        <image src="../../../images/star.jpg" class='star'></image>
+        <image src="/images/star.jpg" class='star'></image>
+        <image src="/images/star.jpg" class='star'></image>
+        <image src="/images/star.jpg" class='star'></image>
+        <image src="/images/star.jpg" class='star'></image>
       </view>
       <view class='course-info'>
         <view class='course-title'>授课时间</view>
@@ -28,7 +28,7 @@
     <view class='b-right'>
       <image class='avatry'></image>
       <view class='btn-box'>
-        <button class="b-btn">预订</button>
+        <button class="b-btn" bindtap='bookingschedule'>预订</button>
         <button class="b-btn">收藏</button>
       </view>
     </view>

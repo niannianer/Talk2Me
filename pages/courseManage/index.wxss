@@ -1,0 +1,30 @@
+/* pages/courseManage/index.wxss */
+.course-manage{
+  padding-left: 32rpx;
+}
+.course-manage .item{
+  padding: 22rpx 32rpx 22rpx 0;
+  font-size: 32rpx;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1rpx solid #eee;
+}
+.item .title{
+  color: #999;
+  font-size: 24rpx;
+}
+.course-manage .left{
+  flex-grow: 1;
+}
+.operation-btn{
+  width: 200rpx;
+  color: red;
+  text-align: right;
+  display: flex;
+  flex-direction: row-reverse;
+  font-weight: bold;
+}
+.add-btn{
+  color: #4164E1; 
+  font-size: 30rpx;
+}

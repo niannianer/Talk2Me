@@ -53,6 +53,13 @@
       </view>
       <view class='right org-name'>{{userInfo.orgName}}</view>
     </view>
+    <view class='item' bindtap='toCourseManage'>
+      <view class='left'>
+        <image src='../../images/me-job-bund.png' mode='aspectFit' class='icon'></image>
+        课程管理
+      </view>
+      <view class='right org-name'>{{userInfo.orgName}}</view>
+    </view>
     <view class='item' bindtap='handTo'>
       <view class='left'>
         <image src='../../images/me-enterprise.png' mode='aspectFit' class='icon'></image>

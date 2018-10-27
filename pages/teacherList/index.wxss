@@ -45,3 +45,22 @@
 .list-wrap .r-info{
   margin-top: 6rpx;
 }
+.go_jobadd {
+  background: #4164e1;
+  box-shadow: 0 8px 16px 0 rgba(65, 100, 225, 0.60);
+  width: 112rpx;
+  height: 112rpx;
+  position: fixed;
+  right: 4%;
+  border-radius: 56rpx;
+  bottom: 4%;
+  font-size: 80rpx;
+  line-height: 90rpx;
+  text-align: center;
+  color: #fff;
+}
+
+.go_jobadd image {
+  width: 40rpx;
+  height: 40rpx;
+}

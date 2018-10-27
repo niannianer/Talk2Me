@@ -1,0 +1,48 @@
+/* pages/courseEdit/index.wxss */
+.course-edit{
+  padding-left: 32rpx;
+}
+.course-edit .r-item{
+  display: flex;
+  flex-direction: row;
+  min-height: 88rpx;
+  line-height: 88rpx;
+  border-bottom: 2rpx solid #eee;
+  font-size: 30rpx;
+}
+.course-edit .i-left{
+  width: 180rpx;
+  flex-grow: 0;
+  flex-shrink: 0;
+  color: #999;
+}
+.course-edit .i-right{
+  flex-grow: 1;
+  display:flex;
+  align-items:center;
+  color: #666;
+}
+.placeholder{
+  color: #ccc;
+}
+.picker-wrap{
+  flex: 1;
+}
+.picker{
+  height: 88rpx;
+  width: 100%;
+}
+.btn-wrap{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.submit-btn{
+  background: #4164E1;
+  color: #fff;
+  font-size: 32rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  flex: 1;
+  margin: 52rpx 32rpx;
+}
