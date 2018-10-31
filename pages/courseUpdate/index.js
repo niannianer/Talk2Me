@@ -1,5 +1,6 @@
 // pages/courseEdit/index.js
 import RequestMessage from '../../utils/RequestMessage.js'
+import CacheMessage from '../../utils/CacheMessage.js'
 
 Page({
 
@@ -8,20 +9,14 @@ Page({
    */
   data: {
     price: '',
-    courseNames: [{
-      name: '英语',
-      value: 'english'
-    }, {
-      name: '法语',
-      value: 'fayu'
-    }]
+    courseLists: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.loadCourseList()
   },
 
   // 提交
@@ -32,9 +27,11 @@ Page({
         url: 'bookingcourse',
         method: 'post',
         data: {
-          tearcherId: '402880e5668b71ad01668c91604a0000',
-          language: that.data.selectCourseObj.value,
-          price: that.data.price
+          tearcherId: CacheMessage.getInstance().teacherId,
+          price: that.data.price,
+          SubjectTypes: [{
+            id: that.data.selectCourseObj.id
+          }]
         },
         success: function (res) {
           console.log(res)
@@ -68,7 +65,7 @@ Page({
   // 校验空
   checkoutEmpty: function () {
     const that = this;
-    if (!that.data.selectCourseObj.name) {
+    if (!that.data.selectCourseObj.id) {
       wx.showToast({
         title: '请选择课程名称',
         icon: 'none'
@@ -87,7 +84,37 @@ Page({
   // 课程名称
   namePickerChange: function (e) {
     this.setData({
-      selectCourseObj: this.data.courseNames[e.detail.value]
+      selectCourseObj: this.data.courseLists[Number(e.detail.value)]
+    })
+  },
+  // 课程列表
+  loadCourseList: function(){
+    const that = this
+    RequestMessage.request({
+      url: 'courseLists',
+      method: 'get',
+      data: {
+        name: ''
+      },
+      success: function (res) {
+        console.log(res)
+        if (res.data.status != 1) {
+          wx.showToast({
+            title: '查询失败',
+            icon: 'none'
+          })
+        } else {
+          that.setData({
+            courseLists: res.data.content || []
+          })
+        }
+      },
+      fail: function () {
+        wx.showToast({
+          title: '查询失败',
+          icon: 'none'
+        })
+      }
     })
   },
   inputChange: function(e){

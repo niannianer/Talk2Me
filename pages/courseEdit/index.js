@@ -51,7 +51,10 @@ Page({
         RequestMessage.request({
           url: 'bookingschedule',
           data: {
-            bookDate: date,
+            studentId: CacheMessage.getInstance().studentId,
+            courseId: "402881f8661a8ffb01661ab468a90000",
+            startDate: "2018-04-23 16:20:22",
+            endDate: "2018-04-23 17:20:22",
             teacherId: CacheMessage.getInstance().teacherId
           },
           success: function (res) {

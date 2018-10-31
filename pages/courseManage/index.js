@@ -1,11 +1,18 @@
 // pages/courseManage/index.js
+import RequestMessage from '../../utils/RequestMessage.js'
+import CacheMessage from '../../utils/CacheMessage.js'
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    courseList: []
+  },
+
+  onLoad: function(){
+    this.getData()
   },
 
   /**
@@ -23,43 +30,32 @@ Page({
   },
   getData: function () {
     const that = this;
-    if (that.checkoutEmpty()) {
-      RequestMessage.request({
-        url: 'bookingcourse',
-        method: 'post',
-        data: {
-          tearcherId: '402880e5668b71ad01668c91604a0000',
-          language: that.data.selectCourseObj.value,
-          price: that.data.price
-        },
-        success: function (res) {
-          console.log(res)
-          if (res.data.status != 1) {
-            wx.showToast({
-              title: '提交失败',
-              icon: 'none'
-            })
-          } else {
-            wx.showToast({
-              title: '提交成功',
-              icon: 'none',
-              duration: 2000,
-              success: function () {
-                wx.navigateBack({
-                  delta: 1
-                })
-              }
-            })
-          }
-        },
-        fail: function () {
+    RequestMessage.request({
+      url: 'bookingcourseList',
+      method: 'get',
+      data: {
+        tearcherId: CacheMessage.getInstance().teacherId
+      },
+      success: function (res) {
+        console.log(res)
+        if (res.data.status != 1) {
           wx.showToast({
-            title: '提交失败',
+            title: '查询失败',
             icon: 'none'
           })
+        }else{
+          that.setData({
+            courseList: res.data.content || []
+          })
         }
-      })
-    }
+      },
+      fail: function () {
+        wx.showToast({
+          title: '查询失败',
+          icon: 'none'
+        })
+      }
+    })
   },
   //点击删除
   deleteItem: function(item){

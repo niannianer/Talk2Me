@@ -7,9 +7,9 @@
       <view class='add-btn' bindtap='addSubmit'>添加</view>
     </view>
     </view>
-  <view class='item'>
-    <view class='left'>英语</view>
-    <view class='right'>100元</view>
-    <view class='operation-btn' bindtap='deleteItem'>删除</view>
+  <view class='item' wx:for="{{courseList}}" wx:key="index" >
+    <view class='left'>{{item.name || 'dsds'}}</view>
+    <view class='right'>{{item.price}}</view>
+    <view class='operation-btn' data-id="{{item.id}}" bindtap='deleteItem'>删除</view>
   </view>
 </view>

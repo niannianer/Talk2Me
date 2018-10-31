@@ -6,11 +6,13 @@ export default class RequestMessage {
   queue = []
   static requestUrl = {
     judgetime: 'secure/course/bookedschedule/judgetime', // 判断开时间是否合法
-    login: '/oauth/token',
-    bookingcourse: '/secure/course/bookingcourse/save',//保存教室所授课程和价格
-    userinfoSave: '/user/userinfo/save',//保存个人信息
-    bookingschedule: '/secure/course/bookingschedule/save',
-    thUserList: '/user/list/query'
+    login: 'oauth/token',
+    bookingcourse: 'secure/course/bookingcourse/save',//保存教室所授课程和价格
+    userinfoSave: 'user/userinfo/save',//保存个人信息
+    bookingschedule: 'secure/course/bookingschedule/save',
+    thUserList: 'user/list/query',
+    bookingcourseList: 'secure/course/bookingcourse/query',
+    courseLists: 'management/coursetype/query'
   }
 
   constructor() {}

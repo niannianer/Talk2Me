@@ -3,9 +3,9 @@
   <view class='r-item'>
     <view class='i-left'>课程名称</view>
     <view class='i-right' >
-    <picker bindchange="namePickerChange" value="{{index}}" range="{{courseNames}}" range-key="name" class='picker-wrap'>
+    <picker bindchange="namePickerChange" value="{{index}}" range="{{courseLists}}" range-key="nameZh" class='picker-wrap'>
         <view class="picker">
-          <text wx:if="{{selectCourseObj.name}}">{{selectCourseObj.name}}</text>
+          <text wx:if="{{selectCourseObj.nameZh}}">{{selectCourseObj.nameZh}}</text>
           <text wx:else class='placeholder'>请选择课程</text>
         </view>
       </picker>
