@@ -4,8 +4,8 @@ const hash = require('./md5.js')
 export default class CacheMessage {
   isFirstLoad = false
   guideIsLoading = true
-  teacherId = '40289f6d641c4e2c01641c4e85660000'
-  studentId = '402880e666b60d110166b6734fa90004'
+  teacherId = '402880e666b60d110166b6734fa90004'
+  studentId = '402880e6674b097a01674b10b1600000'
   iv = '2029485746583574'
   at = ''
   rt = ''

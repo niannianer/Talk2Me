@@ -1,0 +1,49 @@
+.picker-time-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  z-index: 29;
+  text-align: center;
+}
+
+.picker-time-weight {
+  width: 100%;
+  height: 440rpx;
+  position: fixed;
+  bottom: 0;
+  background: white;
+}
+
+.picker-time-btnbar {
+  font-size: 28rpx;  
+  position: fixed;
+  bottom: 440rpx;
+  background: white;
+  z-index: 30;
+  width: 100%;
+}
+
+.picker-time-btnbar-btnl {
+  color: #999;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box; /* Firefox */
+  -webkit-box-sizing: border-box; /* Safari */
+  width: 50%;
+  float: left;
+  text-align: left;
+  padding:32rpx 0 0 32rpx;
+}
+
+.picker-time-btnbar-btnr {
+  color: #4164e1;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box; /* Firefox */
+  -webkit-box-sizing: border-box; /* Safari */
+  width: 50%;
+  float: left;
+  text-align: right;
+  padding:32rpx 32rpx 0 0;
+}

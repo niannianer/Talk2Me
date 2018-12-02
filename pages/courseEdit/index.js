@@ -1,6 +1,7 @@
 // pages/courseEdit/index.js
-import RequestMessage from '../../utils/RequestMessage.js'
 const CacheMessage = require('../../utils/CacheMessage.js')
+import RequestMessage from '../../utils/RequestMessage.js'
+const someService = require('../../servies/someService.js')
 
 Page({
 
@@ -8,85 +9,104 @@ Page({
    * 页面的初始数据
    */
   data: {
-    startTime: '',
-    endTime: '',
+    isLoading: false,
+    startDate: '',
+    endDate: '',
     timeType: '',
     selectCourseObj: {},
     teacherId: '',
-    courseNames: [{
-      name: '英语',
-      value: 'english'
-    },{
-      name: '法语',
-      value: 'fayu'
-    }]    
+    courseList: []    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.setData({
+      teacherId: options.teacherId
+    })
+    this.getTeacherCourse();
   },
 
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
   // 提交
   submit: function(){
     const that = this;
+    console.log(CacheMessage)
+    const cacheMessage = CacheMessage.default.getInstance()
     if (that.checkEmpty()){
-      that.checkTime().then(res=>{
+      // that.checkTime().then(res=>{
         let param = {
-          courseId: '',
-          startDate: '',
-          endDate: '',
-          accept: 0,
-          studentId: ''
+          courseId: that.data.selectCourseObj.id,
+          startDate: that.data.startDate,
+          endDate: that.data.endDate,
+          studentId: cacheMessage.studentId,
+          teacherId: that.data.teacherId
         }
         RequestMessage.request({
           url: 'bookingschedule',
-          data: {
-            studentId: CacheMessage.getInstance().studentId,
-            courseId: "402881f8661a8ffb01661ab468a90000",
-            startDate: "2018-04-23 16:20:22",
-            endDate: "2018-04-23 17:20:22",
-            teacherId: CacheMessage.getInstance().teacherId
-          },
+          data: param,
+          method: 'POST',
           success: function (res) {
-            if (res.data.status != 1) {
-              reject(res)
+            if (res.data.status == 3) {
               return wx.showToast({
-                title: '校验日期失败',
+                title: res.data.extraInfo,
                 icon: 'none'
               })
             }
-            resolve(res)
+            if (res.data.status != 1) {
+              return wx.showToast({
+                title: '预定失败，请稍后再试',
+                icon: 'none'
+              })
+            }
           },
           fail: function () {
             wx.showToast({
-              title: '校验日期失败',
+              title: '预定失败，请稍后再试',
               icon: 'none'
             })
-            reject()
           }
         })
-      })
+      // })
     }
   },
-
+  // 获取当前教师的课程列表
+  getTeacherCourse: function(){
+    const that = this
+    someService.getteacherCourse(that.data.teacherId).then(res => {
+      that.setData({
+        isLoading: false
+      })
+      if (res.data.status != 1) {
+        wx.showToast({
+          title: '查询失败',
+          icon: 'none'
+        })
+      } else {
+        let list = res.data.content || []
+        list.forEach(item => {
+          Object.assign(item, item.subjectTypes[0])
+        })
+        that.setData({
+          courseList: list
+        })
+      }
+    }).catch(() => {
+      wx.showToast({
+        title: '查询失败',
+        icon: 'none'
+      })
+    })
+  },
   // 校验时间是否可用
   checkTime: function(){
+    const that = this
     return new Promise((resolve,reject) => {
       RequestMessage.request({
         url: 'judgetime',
         data: {
           bookDate: date,
-          teacherId: CacheMessage.getInstance().teacherId
+          teacherId: that.data.teacherId
         },
         success: function (res) {
           if (res.status != 1) {
@@ -108,24 +128,66 @@ Page({
       })
     })
   },
+  // 选择时间
+  bindCourseTime: function (e) {
+    const that = this;
+    that.setData({
+      timeType: e.currentTarget.dataset.type
+    })
+
+    if (!this.pickerTime) {
+      this.pickerTime = this.selectComponent("#pickerTime")
+    }
+    this.pickerTime.showDialog()
+  },
+  // 选择时间确定
+  onCourseTimeSure: function (e) {
+    const that = this
+    let choseDate = e.detail.choseDate += ':00'
+    this.pickerTime.hideDialog()
+    if (that.data.timeType == 'start'){
+      that.setData({
+        startDate: choseDate,
+        startDateStr: that.formatDataTimeStr(choseDate)
+      })
+      // that.checkTime(e.detail.value)
+    }else{
+      that.setData({
+        endDate: choseDate,
+        endDateStr: that.formatDataTimeStr(choseDate)
+      })
+    }
+    that.checkTime(choseDate)
+    
+  },
+  formatDataTimeStr: function (dataTime) {
+    if (dataTime == false) {
+      return ''
+    }
+    let length = dataTime.length
+    if (length < 5) {
+      return ''
+    }
+    return dataTime.substring(5, length)
+  },
   // 校验空
   checkEmpty: function(){
     const that = this;
-    if (!that.data.selectCourseObj.name) {
+    if (!that.data.selectCourseObj.id) {
       wx.showToast({
         title: '请选择课程名称',
         icon: 'none'
       })
       return false
     }
-    if (!that.data.startTime) {
+    if (!that.data.startDate) {
       wx.showToast({
         title: '请选择开始时间',
         icon: 'none'
       })
       return false
     }
-    if (!that.data.endTime) {
+    if (!that.data.endDate) {
       wx.showToast({
         title: '请选择结束时间',
         icon: 'none'
@@ -137,8 +199,9 @@ Page({
   // 课程名称
   namePickerChange: function(e){
     this.setData({
-      selectCourseObj: this.data.courseNames[e.detail.value]
+      selectCourseObj: this.data.courseList[Number(e.detail.value)]
     })
+    console.log(this.data.selectCourseObj)
   },
   bindTimeChange: function (e) {
     const that = this;
@@ -156,12 +219,13 @@ Page({
 
   // 校验日期
   checkTime: function(date){
+    const that = this
     return new Promise((resolve,reject) => {
       RequestMessage.request({
         url: 'judgetime',
         data: {
           bookDate: date,
-          teacherId: '40289f6d641c4e2c01641c4e85660000'
+          teacherId: that.data.teacherId
         },
         success: function(res){
           if(res.data.status != 1){

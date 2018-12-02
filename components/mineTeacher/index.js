@@ -25,6 +25,18 @@ Component({
       wx.navigateTo({
         url: '/pages/courseManage/index',
       })
+    },
+    // 评论列表
+    commentTo: function(){
+      wx.navigateTo({
+        url: '/pages/comment/index',
+      })
+    },
+  // 课程表
+    toSchedule: function(){
+      wx.navigateTo({
+        url: '/pages/schedule/index',
+      })
     }
   }
 })

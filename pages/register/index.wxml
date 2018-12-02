@@ -39,7 +39,8 @@
       <view class='i-right'>
         <picker bindchange="userTypePickerChange" value="{{index}}" range="{{userTypes}}" range-key="name">
           <view class="picker">
-            {{userTypeActive.name}}
+            <text wx:if="{{userTypeActive.name}}">{{userTypeActive.name}}</text>
+            <text wx:else class='placeholder-class'>请选择用户类型</text>
           </view>
         </picker>
       </view>

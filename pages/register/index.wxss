@@ -55,3 +55,6 @@
   border-radius: 4rpx;
   color: #fff;
 }
+.placeholder-class{
+  color: #777;
+}

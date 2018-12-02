@@ -14,8 +14,8 @@ page{
   font-size: 30rpx;
 }
 .panel{
-  height:240rpx;
   background:#fff;
+  font-size: 30rpx;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -24,19 +24,31 @@ page{
   border-left: 1rpx solid #ddd;
 }
 
-.panel .flex-row{
-  height: 80rpx;
-  border-right: 1rpx solid #ddd;
-  border-bottom: 1rpx solid #ddd;
-  text-align: center;
+.panel .flex-td.noright{
+  border-right: none;
 }
-
 .flex-row{
+  flex: 1;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  border-bottom: 1rpx solid #ddd;
+  height: 180rpx;
+}
+.flex-td{
   flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  border-right: 1rpx solid #ddd;
+  text-align: center;
+}
+.flex-row.head-row{
+  height: 60rpx;
 }
 
 .loadingImg {

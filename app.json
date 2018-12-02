@@ -7,7 +7,7 @@
     "pages/teacherList/index",
     "pages/teacherDetail/index",
     "pages/teacherEdit/index",
-    "pages/teacherCourses/index",
+    "pages/schedule/index",
     "pages/comment/index",
     "pages/stutends/index",
     "pages/login/login",

@@ -1,5 +1,8 @@
 // pages/register/index.js
 const app = getApp()
+import RequestMessage from '../../utils/RequestMessage.js'
+import someService from '../../servies/someService.js'
+
 Page({
 
   /**
@@ -21,6 +24,7 @@ Page({
    */
   onLoad: function (options) {
     app.getLanuage(this);
+    this.getUserType()
     this.setInitData()
   },
 
@@ -28,8 +32,13 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
+  // 注册
+  register: function(){
+    
+  },
+
   // 上传图片
   uploadImg: function(){
     const that = this;
@@ -96,19 +105,21 @@ Page({
         name: '女',
         value: 2
       }],
-      userTypeActive: {
-        name: '学生',
-        value: 1
-      },
-      userTypes: [{
-        name: '学生',
-        value: 1
-      }, {
-        name: '老师',
-        value: 2
-      }]
+      userTypeActive: {}
     })
     
+  },
+  // 获取用户类型
+  getUserType: function(){
+    const that = this
+    someService.getUserType().then(res=>{
+      console.log(res)
+      if(res.data.content){
+        that.setData({
+          userTypes: res.data.content || []
+        })
+      }
+    })
   }
 
 })

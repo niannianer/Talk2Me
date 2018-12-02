@@ -1,0 +1,14 @@
+/* pages/teacherCourses/index.wxss */
+.teacher-course{
+  background: #fff;
+  height: 100%;
+  padding: 32rpx;
+}
+.title-tool{
+  text-align: right;
+  padding: 15rpx;
+}
+
+.line-time{
+  font-size: 24rpx;
+}

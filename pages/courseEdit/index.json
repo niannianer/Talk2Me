@@ -6,5 +6,6 @@
   "enablePullDownRefresh": true,
   "backgroundColor": "#F0F2F5",
   "usingComponents": {
+    "component-pick-date-time": "/components/picker-date-Time/picker-time"
   }
 }

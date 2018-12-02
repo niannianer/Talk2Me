@@ -5,22 +5,8 @@
       <image src='https://img09.zhaopin.cn/IHRNB/b-wechat/empty-1.png' class='img'></image>
     </view>
     <view>
-      <view class='text'>{{title || "还没有收到候选人简历"}}</view>
-      <block wx:if="{{typename}}">
-        <view class='text1' wx:if="{{typename == 'noRenzStatus'}}"  bindtap='gotoWriteJobname'>
-          <text>告诉我您想招聘的</text>
-          <text class='button'>职位名称</text>
-          <view>为您推荐匹配人才</view>
-        </view>
-
-        <view class='text1' wx:if="{{typename == 'houxResume'}}">主动
-          <text class='button' bindtap='gotoSerchResume'>找人才</text>，招聘快人一步
-        </view>
-      </block>
-
-      <block wx:else>
-        <view class='text1'>{{subTitle}}</view>
-      </block>
+      <view class='text'>{{param.title || "空空如也"}}</view>
+      <button class='button' bindtap='btnEvent'>{{param.buttonText}}</button>
     </view>
   </view>
 </view>

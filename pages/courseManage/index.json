@@ -2,5 +2,7 @@
   "navigationBarTitleText": "课程管理",
   "enablePullDownRefresh": true,
   "backgroundColor": "#F0F2F5",
-  "usingComponents": {}
+  "usingComponents": {
+    "component-empty": "/components/no-resume/no-resume"
+  }
 }

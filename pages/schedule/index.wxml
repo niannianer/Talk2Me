@@ -1,33 +1,35 @@
 <!--pages/teacherCourses/index.wxml-->
 <view class='teacher-course'>
 <view class='title-tool'>
-  <view>2017年12月（第二周）</view>
+  <view bindtap='bindCourseTime'>2017年12月（第二周）</view>
 </view>
 <view class='panel'>
-  <view class="flex-row" wx:for="{{courseList}}" wx:key="{{index}}" wx:for-item="item">
-    <view class="flex-row">
+  <view class="flex-row {{index==0?'head-row':''}}" wx:for="{{courseList}}" wx:key="{{index}}" wx:for-item="item">
+    <view class="flex-td">
     <text>{{item.dayOne}}</text>
     </view>
-    <view class="flex-row">
+    <view class="flex-td">
     <text class="{{index == 0 ? 'noright': ''}}">{{item.dayTwo}}</text>
     </view>
-    <view class="flex-row">
+    <view class="flex-td">
     <text class="{{index == 0 ? 'noright': ''}}">{{item.dayThree}}</text>
     </view>
-    <view class="flex-row">
+    <view class="flex-td">
     <text class="{{index == 0 ? 'noright': ''}}">{{item.dayFour}}</text>
     </view>
-    <view class="flex-row">
+    <view class="flex-td">
     <text class="{{index == 0 ? 'noright': ''}}">{{item.dayFive}}</text>
     </view>
-    <view class="flex-row">
+    <view class="flex-td">
     <text class="{{index == 0 ? 'noright': ''}}">{{item.daySix}}</text>
     </view>
-    <view class="flex-row">
+    <view class="flex-td">
     <text class="{{index == 0 ? 'noright': ''}}">{{item.daySeven}}</text>
     </view>
   </view>
 </view>
 </view>
+
+<component-picker-month-week id='pickerTime' bindsure="onCourseTimeSure"></component-picker-month-week>
 
 

@@ -16,7 +16,6 @@
   left: 50%;
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
-  margin-top: 90rpx;
 }
 .main.nomargintop{
   margin-top: 0
@@ -46,7 +45,11 @@
 }
 
 .button {
-  color: #4164e1;
   font-family: PingFangSC-Regular;
   font-size: 28rpx;
+  background: #4164e1;
+  color: #fff;
+  margin-top: 32rpx;
+  width: 262rpx;
+  line-height: 80rpx;
 }

@@ -1,15 +1,21 @@
 <!--pages/courseManage/index.wxml-->
 <view class='course-manage'>
-<view class='item title'>
+  <view class='item title'>
     <view class='left'>课程名称</view>
     <view class='right'>价格</view>
     <view class='operation-btn'>
       <view class='add-btn' bindtap='addSubmit'>添加</view>
     </view>
-    </view>
-  <view class='item' wx:for="{{courseList}}" wx:key="index" >
-    <view class='left'>{{item.name || 'dsds'}}</view>
-    <view class='right'>{{item.price}}</view>
-    <view class='operation-btn' data-id="{{item.id}}" bindtap='deleteItem'>删除</view>
   </view>
+  <block wx:for="{{courseList}}" wx:key="index" >
+    <view class='item' wx:if="{{item.status != 0}}">
+      <view class='left'>{{item.subjectTypes[0].nameZh}}</view>
+      <view class='right'>{{item.price}}</view>
+      <view class='operation-btn' data-index="{{index}}" bindtap='deleteItem'>删除  </view>
+      </view>
+  </block>  
 </view>
+
+  <component-empty wx:if="{{courseList.length<1 && !isLoading}}" page="courseManage"></component-empty>
+
+

@@ -1,0 +1,17 @@
+<view class='picker-time-container' hidden="{{!isShow}}">
+  <view class='picker-time-btnbar'>
+    <text class='picker-time-btnbar-btnl' bindtap='onClose'>取消</text>
+    <text class='picker-time-btnbar-btnr' bindtap='onSure'>确定</text>
+  </view>
+  <picker-view indicator-style="height: 50px;" class="picker-time-weight" value="{{selectedIndex}}" bindchange="bindChange">
+    <picker-view-column>
+      <view wx:for="{{years}}" wx:key="" style="line-height: 50px">{{item.cn}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{months}}" wx:key="" style="line-height: 50px">{{item.cn}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{weeks}}" wx:key="" style="line-height: 50px">{{item.cn}}</view>
+    </picker-view-column>
+  </picker-view>
+</view>

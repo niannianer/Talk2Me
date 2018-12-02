@@ -7,32 +7,46 @@ Component({
     title: String,
     subTitle: String,
     nomargintop: Boolean,
-    typename: String
+    typename: String,
+    page: String
   },
 
   /**
    * 组件的初始数据
    */
   data: {
+    param: {}
+  },
+
+  ready: function(){
+    this.showData();
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
-    // 去找人才
-    gotoSerchResume: function () {
-      wx.switchTab({
-        url: '/pages/search/search',
-      })
+    // 按钮
+    btnEvent: function () {
+      this.data.param.btnFunction()
     },
 
-    //去输入职位名称
-    gotoWriteJobname: function(){
-      // this.triggerEvent("noresumejump")
-      
-      wx.navigateTo({
-        url: '/pages/wantJob/wantJob',
+    // 文案，方法
+    showData: function(){
+      const that = this
+      const datas = {
+        courseManage: {
+          title: '没有添加课程',
+          buttonText: '去添加',
+          btnFunction: function(){
+            wx.navigateTo({
+              url: '/pages/courseUpdate/index',
+            })
+          }
+        }
+      }
+      that.setData({
+        param: datas[that.data.page]
       })
     }
   }

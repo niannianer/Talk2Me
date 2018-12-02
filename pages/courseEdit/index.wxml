@@ -3,9 +3,9 @@
   <view class='r-item'>
     <view class='i-left'>课程名称</view>
     <view class='i-right' >
-    <picker bindchange="namePickerChange" value="{{index}}" range="{{courseNames}}" range-key="name" class='picker-wrap'>
+    <picker bindchange="namePickerChange" value="{{index}}" range="{{courseList}}" range-key="nameZh" class='picker-wrap'>
         <view class="picker">
-          <text wx:if="{{selectCourseObj.name}}">{{selectCourseObj.name}}</text>
+          <text wx:if="{{selectCourseObj.nameZh}}">{{selectCourseObj.nameZh}}</text>
           <text wx:else class='placeholder'>请选择课程</text>
         </view>
       </picker>
@@ -13,24 +13,24 @@
   </view>
   <view class='r-item'>
       <view class='i-left'>开始时间</view>
-      <view class='i-right'>
-        <picker mode="date" value="{{startTime}}" data-type="start" bindchange="bindTimeChange">
-          <view class="picker">
-            <text wx:if="{{startTime}}">{{startTime}}</text>
+      <view class='i-right' data-type="start" bindtap='bindCourseTime'>
+        <!-- <picker mode="date" value="{{startDate}}" data-type="start" bindchange="bindTimeChange">
+          <view class="picker"> -->
+            <text wx:if="{{startDate}}">{{startDate}}</text>
             <text wx:else class='placeholder'>请选择</text>
-          </view>
-        </picker>
+          <!-- </view>
+        </picker> -->
       </view>
     </view>
     <view class='r-item'>
       <view class='i-left'>结束时间</view>
-      <view class='i-right'>
-          <picker mode="date" value="{{endTime}}" data-type="end" bindchange="bindTimeChange">
-            <view class="picker">
-              <text wx:if="{{endTime}}">{{endTime}}</text>
+      <view class='i-right' data-type="end" bindtap='bindCourseTime'>
+          <!-- <picker mode="date" value="{{endDate}}" data-type="end" bindchange="bindTimeChange">
+            <view class="picker"> -->
+              <text wx:if="{{endDate}}">{{endDate}}</text>
               <text wx:else class='placeholder'>请选择</text>
-            </view>
-          </picker>
+            <!-- </view>
+          </picker> -->
       </view>
       </view>
     <view class='btn-wrap'>
@@ -38,4 +38,6 @@
     </view>
     
 </view>
+
+<component-pick-date-time id='pickerTime' bindsure="onCourseTimeSure"></component-pick-date-time>
 
