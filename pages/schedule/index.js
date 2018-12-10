@@ -1,6 +1,13 @@
 // pages/teacherCourses/index.js
 import RequestMessage from '../../utils/RequestMessage.js'
 import CacheMessage from '../../utils/CacheMessage.js'
+const moment = require('../../utils/moment.min.js')
+moment.locale('zh-cn', {
+  longDateFormat: {
+    L: "YYYY-MM-DD",
+    l: "M月D日ddd"
+  }
+})
 
 Page({
 
@@ -33,6 +40,22 @@ Page({
         dayFive: '',
         daySix: '11.00-12.00',
         daySeven: '11.00-12.00'
+      }, {
+        dayOne: '12.00--14.00',
+        dayTwo: '',
+        dayThree: '10.00-11.00',
+        dayFour: '9.00-12.00',
+        dayFive: '',
+        daySix: '11.00-12.00',
+        daySeven: '11.00-12.00'
+      }, {
+        dayOne: '',
+        dayTwo: '12.00--14.00',
+        dayThree: '10.00-11.00',
+        dayFour: '',
+        dayFive: '',
+        daySix: '11.00-12.00',
+        daySeven: '11.00-12.00'
       }]
   },
 
@@ -42,6 +65,7 @@ Page({
   onLoad: function (options) {
     
   },
+  // 获取课程表数据
   getSchedule: function(){
     const that = this
     let param = {
@@ -56,24 +80,68 @@ Page({
       success: function (res) {
         if (res.data.status != 1) {
           wx.showToast({
-            title: '提交失败',
+            title: '获取失败',
             icon: 'none'
           })
-        } else {
-          wx.showToast({
-            title: '提交成功',
-            icon: 'none',
-            duration: 2000
-          })
-        }
+        }else{
+          that.formatCourse(res.data.content)
+        } 
       },
       fail: function () {
         wx.showToast({
-          title: '提交失败',
+          title: '获取失败',
           icon: 'none'
         })
       }
     })
+  },
+  formatCourse: function(list){
+    const that = this
+    if(!list){
+      return
+    }
+    list.forEach(item => {
+      const week = moment(item.startDate).format('d');
+      const date = moment(item.endDate).format('YYYY-MM-DD HH:mm')
+      const hourse = Number(moment(item.startDate).format('HH'))
+      const minite = Number(moment(item.startDate).format('mm'))
+      const startTime = moment(item.startDate).format('HH:mm')
+      const endTime = moment(item.endDate).format('HH:mm')
+      const weekKey = that.getWeekText(week)
+      if (hourse < 10){
+        this.courseList[0][weekKey] = startTime + '-' + endTime
+      }
+    })
+    
+  },
+  getWeekText: function(week){
+    let weekText = ''
+    switch(week){
+      case 1:
+        weekText = 'dayOne'
+        break
+        case 2:
+        weekText = 'dayTwo'
+        break
+        case 3:
+        weekText = 'dayThree'
+          break
+        case 4:
+        weekText = 'dayFour'
+          break
+        case 5:
+        weekText = 'dayFive'
+          break
+        case 6:
+        weekText = 'daySix'
+          break
+        case 7:
+        weekText = 'daySeven'
+          break
+          default:
+          break
+    }
+    return weekText
   },
   // 选择时间
   bindCourseTime: function (e) {
@@ -92,12 +160,10 @@ Page({
       choseDate
     })
     console.log(choseDate)
-    if (e.detail.noHide){
-      this.getSchedule()
-      return
+    if (!e.detail.noHide){
+      this.pickerTime.hideDialog()
     }
-    this.pickerTime.hideDialog()
-    
+    this.getSchedule()
   },
 
 })

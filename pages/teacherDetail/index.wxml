@@ -2,12 +2,12 @@
 <view class='tc-detail'>
   <view class='base-info dl-item'>
     <view class='b-left'>
-      <view class='name'>John Smith</view>
+      <view class='name'>{{info.realName}}</view>
       <view class='four-info'>
-        男<view class='split'>|</view>
+        {{info.gender}}<view class='split'>|</view>
         55<view class='split'>|</view>
-        美国<view class='split'>|</view>
-        英语
+        {{info.nationnlity}}<view class='split'>|</view>
+        {{info.firstLanguage}}
       </view>
       <view class='star-info'>
         <image src="/images/star.jpg" class='star'></image>
@@ -37,7 +37,7 @@
   <view class='self-desc dl-item'>
     <view class='title'>自我介绍</view>
     <view class='desc'>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget.
+      {{info.selfIntroduction}}
     </view>
     <view>
         <view></view>

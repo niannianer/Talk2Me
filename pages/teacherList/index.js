@@ -50,7 +50,7 @@ Page({
     const that = this
     let {page,size} = that.data
     RequestMessage.request({
-      url: 'thUserList',
+      url: 'teacherList',
       data: {
         page,
         size
@@ -82,7 +82,7 @@ Page({
   goDetail: function(e){
     console.log(e)
     wx.navigateTo({
-      url: `/pages/teacherDetail/index?id=${e.currentTarget.dataset.id}`,
+      url: `/pages/teacherDetail/index?sysUserId=${e.currentTarget.dataset.id}`,
     })
   },
   selectItem: function(selectObj){

@@ -1,7 +1,7 @@
 <!--pages/teacherCourses/index.wxml-->
 <view class='teacher-course'>
 <view class='title-tool'>
-  <view bindtap='bindCourseTime'>2017年12月（第二周）</view>
+  <view bindtap='bindCourseTime'>{{choseDate.dateString}}</view>
 </view>
 <view class='panel'>
   <view class="flex-row {{index==0?'head-row':''}}" wx:for="{{courseList}}" wx:key="{{index}}" wx:for-item="item">
@@ -28,6 +28,7 @@
     </view>
   </view>
 </view>
+
 </view>
 
 <component-picker-month-week id='pickerTime' bindsure="onCourseTimeSure"></component-picker-month-week>

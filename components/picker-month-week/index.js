@@ -94,7 +94,7 @@ Component({
     let val = [0,0,0]
     const year = moment().weekYear()
     const month = moment().month()
-    const day = moment().dayOfYear()
+    const day = moment().date()
     for(var i = 0; i< that.data.years.length; i++){
       if (that.data.years[i].ck == year){
         val[0] = i
@@ -102,10 +102,14 @@ Component({
       }
     }
     val[1] = month
-    val[2] = that.getMonthWeek(year,month,day) -1
+    val[2] = that.getMonthWeek(year,month+1,day) -1
     that.changeWeeks(val)
     that.getChooseDate(val)
-    that.onSure()
+    var myEventDetail = {
+      "choseDate": this.data.choseDate,
+      "noHide": true
+    };
+    this.triggerEvent('sure', myEventDetail);
   },
   /**
    * 组件的方法列表
@@ -136,15 +140,16 @@ Component({
     },
     getChooseDate(val){
       const that = this
-      const startDate = that.data.years[val[0]].ck + '-' +
-        that.data.months[val[1]].ck + '-' +
+      const year = that.data.years[val[0]].ck
+      const month = that.data.months[val[1]].ck
+      const startDate = year + '-' + month + '-' +
         that.data.weeks[val[2]].startDate
 
-      const endDate = that.data.years[val[0]].ck + '-' +
-        that.data.months[val[1]].ck + '-' +
+      const endDate = year + '-' + month + '-' +
         that.data.weeks[val[2]].endDate
       that.setData({
         choseDate: {
+          dateString: year + '年' + month + '月（' + that.data.weeks[val[2]].cn + '）',
           startDate,
           endDate
         }
@@ -152,8 +157,7 @@ Component({
     },
     onSure: function (e) {
       var myEventDetail = {
-        "choseDate": this.data.choseDate,
-        "noHide": true
+        "choseDate": this.data.choseDate
       };
       this.triggerEvent('sure', myEventDetail);
     },

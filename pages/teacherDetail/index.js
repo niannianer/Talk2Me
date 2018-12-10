@@ -1,4 +1,6 @@
 // pages/teacherDetail/index.js
+import RequestMessage from '../../utils/RequestMessage.js'
+
 Page({
 
   /**
@@ -6,6 +8,7 @@ Page({
    */
   data: {
     teacherId: '',
+    info: {},
     commentList: [{
       title: '风趣，知识丰富',
       name: '王晓晓',
@@ -52,10 +55,36 @@ Page({
   onLoad: function (options) {
     console.log(options)
     this.setData({
-      teacherId: options.id
+      teacherId: options.sysUserId
+    })
+    this.getTeacherInfo()
+  },
+  // 获取教师详情
+  getTeacherInfo: function(){
+    const that = this
+    RequestMessage.request({
+      url: 'teacherDetail',
+      data: {
+        sysUserId: that.data.teacherId
+      },
+      method: 'get',
+      success: function (res) {
+        if(res.data.status != 1){
+          return wx.showToast({
+            title: '加载失败',
+            duration: 2000
+          })
+        }
+        that.setData({
+          info: res.data.content
+        })
+      },
+      fail: function (res) {
+
+      }
     })
   },
-
+  // 预定
   bookingschedule: function(){
     const that = this
     wx.navigateTo({

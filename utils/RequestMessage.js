@@ -10,7 +10,8 @@ export default class RequestMessage {
     bookingcourse: 'secure/course/bookingcourse/save',//保存教室所授课程和价格
     userinfoSave: 'user/userinfo/save',//保存个人信息
     bookingschedule: 'secure/course/bookingschedule/save', //预定课程
-    thUserList: 'user/list/query', 
+    teacherList: 'user/list/teacher/query', //教师列表
+    teacherDetail: 'user/teacher/query',
     bookingcourseList: 'secure/course/bookingcourse/query',
     courseLists: 'management/coursetype/query', //课程种类
     userType: 'user/role/list/query', //用户类型

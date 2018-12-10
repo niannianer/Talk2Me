@@ -58,6 +58,10 @@ Page({
                 title: '预定失败，请稍后再试',
                 icon: 'none'
               })
+            }else{
+              wx.navigateBack({
+                delta: 1
+              })
             }
           },
           fail: function () {
