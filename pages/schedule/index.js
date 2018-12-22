@@ -16,57 +16,64 @@ Page({
    */
   data: {
     choseDate: {},
-      courseList: [{
-        dayOne: '周一',
-        dayTwo: '周二',
-        dayThree: '周三',
-        dayFour: '周四',
-        dayFive: '周五',
-        daySix: '周六',
-        daySeven: '周日'
-      }, {
-        dayOne: '12.00--14.00',
-        dayTwo: '',
-        dayThree: '10.00-11.00',
-        dayFour: '9.00-12.00',
-        dayFive: '',
-        daySix: '11.00-12.00',
-        daySeven: '11.00-12.00'
-      }, {
-        dayOne: '',
-        dayTwo: '12.00--14.00',
-        dayThree: '10.00-11.00',
-        dayFour: '',
-        dayFive: '',
-        daySix: '11.00-12.00',
-        daySeven: '11.00-12.00'
-      }, {
-        dayOne: '12.00--14.00',
-        dayTwo: '',
-        dayThree: '10.00-11.00',
-        dayFour: '9.00-12.00',
-        dayFive: '',
-        daySix: '11.00-12.00',
-        daySeven: '11.00-12.00'
-      }, {
-        dayOne: '',
-        dayTwo: '12.00--14.00',
-        dayThree: '10.00-11.00',
-        dayFour: '',
-        dayFive: '',
-        daySix: '11.00-12.00',
-        daySeven: '11.00-12.00'
-      }]
+    showError: false,
+    courseList: [{
+      dayOne: {
+        text: '周一'
+      },
+      dayTwo: {
+        text: '周二'
+      },
+      dayThree: {
+        text: '周三'
+      },
+      dayFour: {
+        text: '周四'
+      },
+      dayFive: {
+        text: '周五'
+      },
+      daySix: {
+        text: '周六'
+      },
+      daySeven: {
+        text: '周日'
+      }
+    }, {
+      dayOne: {},
+      dayTwo: {},
+      dayThree: {},
+      dayFour: {},
+      dayFive: {},
+      daySix: {},
+      daySeven: {}
+    }, {
+        dayOne: {},
+        dayTwo: {},
+        dayThree: {},
+        dayFour: {},
+        dayFive: {},
+        daySix: {},
+        daySeven: {}
+    }, {
+        dayOne: {},
+        dayTwo: {},
+        dayThree: {},
+        dayFour: {},
+        dayFive: {},
+        daySix: {},
+        daySeven: {}
+    }]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+
   },
   // 获取课程表数据
-  getSchedule: function(){
+  getSchedule: function () {
     const that = this
     let param = {
       startDate: that.data.choseDate.startDate + ' 00:00:00',
@@ -79,25 +86,64 @@ Page({
       data: param,
       success: function (res) {
         if (res.data.status != 1) {
+          this.showError = true
           wx.showToast({
             title: '获取失败',
             icon: 'none'
           })
-        }else{
+        } else {
+          this.showError = false
           that.formatCourse(res.data.content)
-        } 
+        }
       },
       fail: function () {
+        this.showError = true
         wx.showToast({
           title: '获取失败',
           icon: 'none'
         })
+        const content = [
+          {
+            "courseId": "402880e766c5a95d0166c5b372c90002",
+            "courseRemind": 0,
+            "endDate": 1543890600000,
+            "flag": 0,
+            "id": "402880e867742f550167746d57640002",
+            "startDate": 1543888800000,
+            "studentId": "402880e666b60d110166b628537c0002",
+            "teacherId": "402880e5668af25101668af9189e0003"
+          },
+          {
+            "courseId": "402880e766c5a95d0166c5b372c90002",
+            "courseRemind": 0,
+            "endDate": 1543892400000,
+            "flag": 0,
+            "id": "402880e867742f5501677463ed880001",
+            "startDate": 1543892400000,
+            "studentId": "402880e6674b097a01674b10b1600000",
+            "teacherId": "402880e5668af25101668af9189e0003"
+          }
+        ]
+        that.formatCourse(content)
       }
     })
   },
-  formatCourse: function(list){
+  // 进入详情页
+  toDetail: function(e){
+    console.log(e)
+    const teacherId = e.currentTarget.dataset.teacherid
+    const stutentId = e.currentTarget.dataset.studentid
+    const scheduleId = e.currentTarget.dataset.scheduleid
+    const role = wx.getStorageSync('role')
+    const url = role == 2 ? '/pages/studentDetail/index?source=course' : '/pages/teacherDetail/index?source=course'
+    wx.navigateTo({
+      url: url + '&tId=' + teacherId + '&sId=' + stutentId + '&scheduleId=' + scheduleId
+    })
+  },
+  // 格式化数组
+  formatCourse: function (list) {
     const that = this
-    if(!list){
+    if (!list) {
       return
     }
     list.forEach(item => {
@@ -108,38 +154,50 @@ Page({
       const startTime = moment(item.startDate).format('HH:mm')
       const endTime = moment(item.endDate).format('HH:mm')
       const weekKey = that.getWeekText(week)
-      if (hourse < 10){
-        this.courseList[0][weekKey] = startTime + '-' + endTime
+      let obj = item
+      // obj.text = startTime + '-' + endTime
+      obj.text = (item.courseName || '').split('/')[0]
+      let courseList = that.data.courseList
+      if (hourse < 12) {
+        courseList[1][weekKey] = obj
+      } else if (hourse < 18){
+        courseList[2][weekKey] = obj
+      }else{
+        courseList[3][weekKey] = obj
       }
+      that.setData({
+        courseList
+      })
     })
-    
+
   },
-  getWeekText: function(week){
+  // 字段获取
+  getWeekText: function (week) {
     let weekText = ''
-    switch(week){
-      case 1:
+    switch (week) {
+      case '1':
         weekText = 'dayOne'
         break
-        case 2:
+      case '2':
         weekText = 'dayTwo'
         break
-        case 3:
+      case '3':
         weekText = 'dayThree'
-          break
-        case 4:
+        break
+      case '4':
         weekText = 'dayFour'
-          break
-        case 5:
+        break
+      case '5':
         weekText = 'dayFive'
-          break
-        case 6:
+        break
+      case '6':
         weekText = 'daySix'
-          break
-        case 7:
+        break
+      case '7':
         weekText = 'daySeven'
-          break
-          default:
-          break
+        break
+      default:
+        break
     }
     return weekText
   },
@@ -160,7 +218,7 @@ Page({
       choseDate
     })
     console.log(choseDate)
-    if (!e.detail.noHide){
+    if (!e.detail.noHide) {
       this.pickerTime.hideDialog()
     }
     this.getSchedule()

@@ -81,7 +81,7 @@ Component({
     days: days,
     hours: hours,
     minutes: minutes,
-    selectedIndex: [0, 1, 1],
+    selectedIndex: [0, 0, 0],
     choseDate: ''
   },
   ready: function () {
@@ -103,6 +103,10 @@ Component({
     }
     val[1] = month
     val[2] = that.getMonthWeek(year,month+1,day) -1
+    // 设置默认值，当前周
+    that.setData({
+      selectedIndex: val
+    })
     that.changeWeeks(val)
     that.getChooseDate(val)
     var myEventDetail = {

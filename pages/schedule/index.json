@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "教师课程",
   "usingComponents": {
-    "component-picker-month-week": "/components/picker-month-week/index"
+    "component-picker-month-week": "/components/picker-month-week/index",
+    "component-net-error": "/components/net-error/net-error"
   }
 }

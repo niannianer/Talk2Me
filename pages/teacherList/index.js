@@ -82,7 +82,7 @@ Page({
   goDetail: function(e){
     console.log(e)
     wx.navigateTo({
-      url: `/pages/teacherDetail/index?sysUserId=${e.currentTarget.dataset.id}`,
+      url: `/pages/teacherDetail/index?tId=${e.currentTarget.dataset.id}`,
     })
   },
   selectItem: function(selectObj){

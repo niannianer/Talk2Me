@@ -5,6 +5,7 @@ export default class RequestMessage {
   isPush = false
   queue = []
   static requestUrl = {
+    register: 'user/save',
     judgetime: 'secure/course/bookedschedule/judgetime', // 判断开时间是否合法
     login: 'oauth/token',
     bookingcourse: 'secure/course/bookingcourse/save',//保存教室所授课程和价格
@@ -15,7 +16,9 @@ export default class RequestMessage {
     bookingcourseList: 'secure/course/bookingcourse/query',
     courseLists: 'management/coursetype/query', //课程种类
     userType: 'user/role/list/query', //用户类型
-    scheduleQuery: 'secure/course/bookedschedule/query'
+    scheduleQuery: 'secure/course/bookedschedule/query',
+    commentSave: 'secure/course/comment/save',//保存评价
+    commentQuery: 'commemts/query'//评价查询
     
   }
 

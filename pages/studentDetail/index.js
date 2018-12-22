@@ -8,6 +8,7 @@ Page({
    */
   data: {
     teacherId: '',
+    studentId: '',
     scheduleId: '',
     info: {},
     source: '',
@@ -32,23 +33,23 @@ Page({
       dayFive: '周五',
       daySix: '周六',
       daySeven: '周日'
-    },{
-        dayOne: '12.00--14.00',
-        dayTwo: '',
-        dayThree: '10.00-11.00',
-        dayFour: '9.00-12.00',
-        dayFive: '',
-        daySix: '11.00-12.00',
-        daySeven: '11.00-12.00'
-      }, {
-        dayOne: '',
-        dayTwo: '12.00--14.00',
-        dayThree: '10.00-11.00',
-        dayFour: '',
-        dayFive: '',
-        daySix: '11.00-12.00',
-        daySeven: '11.00-12.00'
-      }]
+    }, {
+      dayOne: '12.00--14.00',
+      dayTwo: '',
+      dayThree: '10.00-11.00',
+      dayFour: '9.00-12.00',
+      dayFive: '',
+      daySix: '11.00-12.00',
+      daySeven: '11.00-12.00'
+    }, {
+      dayOne: '',
+      dayTwo: '12.00--14.00',
+      dayThree: '10.00-11.00',
+      dayFour: '',
+      dayFive: '',
+      daySix: '11.00-12.00',
+      daySeven: '11.00-12.00'
+    }]
   },
 
   /**
@@ -58,13 +59,15 @@ Page({
     console.log(options)
     this.setData({
       teacherId: options.tId,
+      studentId: options.sId || '',
       source: options.source || '',
       scheduleId: options.scheduleId || ''
     })
-    this.getTeacherInfo()
+    this.getStudentInfo()
+    this.getStudentComment()
   },
   // 获取教师详情
-  getTeacherInfo: function(){
+  getStudentInfo: function () {
     const that = this
     RequestMessage.request({
       url: 'teacherDetail',
@@ -73,7 +76,7 @@ Page({
       },
       method: 'get',
       success: function (res) {
-        if(res.data.status != 1){
+        if (res.data.status != 1) {
           return wx.showToast({
             title: '加载失败',
             duration: 2000
@@ -88,18 +91,36 @@ Page({
       }
     })
   },
-  // 预定
-  bookingschedule: function(){
+  // 获取老师对该学生的评价
+  getStudentComment: function(){
     const that = this
-    wx.navigateTo({
-      url: `/pages/courseEdit/index?teacherId=${that.data.teacherId}`,
+    RequestMessage.request({
+      url: 'commentQuery',
+      data: {
+        userId: that.data.studentId
+      },
+      method: 'get',
+      success: function (res) {
+        if (res.data.status != 1) {
+          return wx.showToast({
+            title: '加载失败',
+            duration: 2000
+          })
+        }
+        that.setData({
+          commentList: res.data.content
+        })
+      },
+      fail: function (res) {
+
+      }
     })
   },
   // 去评价
-  toComment: function(){
+  toComment: function () {
     const that = this
     wx.navigateTo({
-      url: `/pages/commentEdit/index?tId=${that.data.teacherId}&scheduleId=${that.data.scheduleId}`,
+      url: `/pages/commentEdit/index?sId=${that.data.studentId}&scheduleId=${that.data.scheduleId}`,
     })
   }
 })

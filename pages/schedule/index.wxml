@@ -5,32 +5,37 @@
 </view>
 <view class='panel'>
   <view class="flex-row {{index==0?'head-row':''}}" wx:for="{{courseList}}" wx:key="{{index}}" wx:for-item="item">
-    <view class="flex-td">
-    <text>{{item.dayOne}}</text>
+    <view class="flex-td" data-teacherId="{{item.dayOne.teacherId}}"  data-studentId="{{item.dayOne.studentId}}" bindtap='toDetail'>
+    <text>{{item.dayOne.text}}</text>
     </view>
-    <view class="flex-td">
-    <text class="{{index == 0 ? 'noright': ''}}">{{item.dayTwo}}</text>
+    <view class="flex-td" data-teacherId="{{item.dayTwo.teacherId}}"  data-studentId="{{item.dayTwo.studentId}}" data-scheduleId="{{item.dayTwo.id}}" bindtap='toDetail'>
+    <text>{{item.dayTwo.text}}</text>
+    <text wx:if="{{item.dayTwo.studentName}}">{{item.dayTwo.studentName}}</text>
     </view>
-    <view class="flex-td">
-    <text class="{{index == 0 ? 'noright': ''}}">{{item.dayThree}}</text>
+    <view class="flex-td" data-teacherId="{{item.dayThree.teacherId}}"  data-studentId="{{item.dayThree.studentId}}" data-scheduleId="{{item.dayThree.id}}" bindtap='toDetail'>
+    <text>{{item.dayThree.text}}</text>
     </view>
-    <view class="flex-td">
-    <text class="{{index == 0 ? 'noright': ''}}">{{item.dayFour}}</text>
+    <view class="flex-td" data-teacherId="{{item.dayFour.teacherId}}"  data-studentId="{{item.dayFour.studentId}}" data-scheduleId="{{item.dayFour.id}}" bindtap='toDetail'>
+    <text>{{item.dayFour.text}}</text>
     </view>
-    <view class="flex-td">
-    <text class="{{index == 0 ? 'noright': ''}}">{{item.dayFive}}</text>
+    <view class="flex-td" data-teacherId="{{item.dayFive.teacherId}}"  data-studentId="{{item.dayFive.studentId}}" data-scheduleId="{{item.dayFive.id}}" bindtap='toDetail'>
+    <text>{{item.dayFive.text}}</text>
     </view>
-    <view class="flex-td">
-    <text class="{{index == 0 ? 'noright': ''}}">{{item.daySix}}</text>
+    <view class="flex-td" data-teacherId="{{item.daySix.teacherId}}"  data-studentId="{{item.daySix.studentId}}" data-scheduleId="{{item.daySix.id}}" bindtap='toDetail'>
+    <text>{{item.daySix.text}}</text>
     </view>
-    <view class="flex-td">
-    <text class="{{index == 0 ? 'noright': ''}}">{{item.daySeven}}</text>
+    <view class="flex-td" data-teacherId="{{item.daySeven.teacherId}}"  data-studentId="{{item.daySeven.studentId}}" data-scheduleId="{{item.daySeven.id}}" bindtap='toDetail'>
+    <text>{{item.daySeven.text}}</text>
+    <text wx:if="{{item.daySeven.studentName}}">{{item.daySeven.studentName}}</text>
     </view>
   </view>
 </view>
 
 </view>
 
+<!--月周时间选择  -->
 <component-picker-month-week id='pickerTime' bindsure="onCourseTimeSure"></component-picker-month-week>
+
+<component-net-error wx:if=""></component-net-error>
 
 

@@ -1,0 +1,60 @@
+/* pages/register/index.wxss */
+.register{
+  padding: 30rpx;
+  font-size: 30rpx;
+  background: #fff;
+}
+
+.register .upload-img{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.register .upload-inner{
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 50%;
+  background: blue;
+  margin-bottom: 20rpx;
+}
+.register .r-item{
+  display: flex;
+  flex-direction: row;
+  min-height: 88rpx;
+  line-height: 88rpx;
+  border-bottom: 2rpx solid #eee;
+  font-size: 30rpx;
+}
+.register .i-left{
+  width: 180rpx;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+.register .i-right{
+  flex-grow: 1;
+  display:flex;
+  align-items:center;
+}
+.register .r-item.r-self-desc{
+  display: flex;
+  flex-direction: column;
+}
+.register .r-textarea{
+  border: 2rpx solid #eee;
+  height: 240rpx;
+  text-align: left;
+  padding: 6rpx 10rpx;
+  width: 100%;
+}
+.register .sub-btn{
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #4f6;
+  font-size: 30rpx;
+  margin: 30rpx 0;
+  border-radius: 4rpx;
+  color: #fff;
+}
+.placeholder-class{
+  color: #777;
+}

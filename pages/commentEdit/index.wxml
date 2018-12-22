@@ -1,0 +1,24 @@
+<!--pages/commentEdit/index.wxml-->
+<view class="write-comment">
+  <view class="write">
+    <view class="star">
+      <view class="star-img" wx:for="{{stars}}" wx:key="index" data-index="{{index}}" bindtap='rating'>
+        <image src="{{item.active ? item.srcColor : item.src}}" class='start-icon'></image>
+        <text class='{{item.active?"level-textc":"level-text"}}'>{{item.text}}</text>
+      </view>
+    </view>
+  </view>
+  <view>
+    <textarea class="text-box" placeholder="请分享您对该服务商的合作评价，内容务必与真实情况相符。" bindinput='textInput'></textarea>
+    <view>
+      <view class="bom-text" wx:if="{{!writeText}}">评价12字以上</view>
+      <view class="bom-text" wx:if="{{textLength}}">还有{{textLength}}字就可以发表了</view>
+    </view>
+
+    <button bindtap='addComment' class='publish-btn'>
+      <image src="../../images/publish.png" alt="" class='publish-icon'></image>
+      发表
+    </button>
+  </view>
+  
+</view>

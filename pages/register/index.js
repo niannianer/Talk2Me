@@ -25,7 +25,6 @@ Page({
   onLoad: function (options) {
     app.getLanuage(this);
     this.getUserType()
-    this.setInitData()
   },
 
   /**
@@ -36,7 +35,48 @@ Page({
   },
   // 注册
   register: function(){
-    
+    const that = this
+    let param = {
+      enabled: 1,
+      roles: [{ id: that.data.userTypeActive.id, name: that.data.userTypeActive.name }],
+      username: that.data.username,
+      password: that.data.password
+    }
+    RequestMessage.request({
+      url: 'register',
+      data: param,
+      method: 'POST',
+      success: function (res) {
+        if (res.data.status == 1) {
+          wx.showToast({
+            title: '注册成功',
+            icon: 'none'
+          })
+          wx.redirectTo({
+            url: '/pages/login/index',
+          })
+        } else {
+          wx.showToast({
+            title: '注册失败',
+            icon: 'none'
+          })
+        }
+      },
+      fail: function () {
+        wx.showToast({
+          title: '注册失败，请稍后再试',
+          icon: 'none'
+        })
+      }
+    })
+  },
+  onGotUserInfo(e) {
+    const that = this
+    if (e.detail.errMsg == 'getUserInfo:ok'){
+      that.setData({
+        userInfo: e.detail.userInfo
+      })
+    }
   },
 
   // 上传图片
@@ -54,61 +94,7 @@ Page({
       }
     })
   },
-  // 城市切换
-  contryPickerChange: function(e){
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      contryActive: this.data.contries[e.detail.value]
-    })
-  },
 
-  // 性别切换
-  sexPickerChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      sexActive: this.data.sexs[e.detail.value]
-    })
-  },
-
-  // 
-  userTypePickerChange: function (e) {
-    this.setData({
-      userTypeActive: this.data.userTypes[e.detail.value]
-    })
-  },
-
-  //  初始值设置
-  setInitData: function(){
-    this.setData({
-      contryActive: {
-        name: '中国',
-        value: 1
-      },
-      contries: [{
-        name: '中国',
-        value: 1
-      }, {
-        name: '新西兰',
-        value: 2
-      }, {
-        name: '新加坡',
-        value: 3
-      }],
-      sexActive: {
-        name: '男',
-        value: 1
-      },
-      sexs: [{
-        name: '男',
-        value: 1
-      }, {
-        name: '女',
-        value: 2
-      }],
-      userTypeActive: {}
-    })
-    
-  },
   // 获取用户类型
   getUserType: function(){
     const that = this
@@ -120,6 +106,26 @@ Page({
         })
       }
     })
-  }
+  },
+  // 用户类型选择
+  userTypePickerChange: function (e) {
+    this.setData({
+      userTypeActive: this.data.userTypes[e.detail.value]
+    })
+  },
+
+  // 用户名输入
+  bindinputName: function(e){
+    this.setData({
+      username: e.detail.value
+    })
+  },
+  // 密码输入
+  bindinputPwd: function (e) {
+    this.setData({
+      password: e.detail.value
+    })
+  },
+
 
 })

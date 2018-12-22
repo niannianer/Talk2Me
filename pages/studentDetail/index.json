@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "学生详情",
+  "usingComponents": {
+    "component-comment": "/components/comment/index"
+  }
+}

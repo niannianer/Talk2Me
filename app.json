@@ -14,7 +14,10 @@
     "pages/courseEdit/index",
     "pages/authy/authy",
     "pages/courseManage/index",
-    "pages/courseUpdate/index"
+    "pages/courseUpdate/index",
+    "pages/completeInfo/index",
+    "pages/commentEdit/index",
+    "pages/studentDetail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
