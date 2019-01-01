@@ -1,1 +1,8 @@
 /* pages/comment/index.wxss */
+.comment-manage{
+  padding: 32rpx;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}

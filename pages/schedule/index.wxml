@@ -10,7 +10,7 @@
     </view>
     <view class="flex-td" data-teacherId="{{item.dayTwo.teacherId}}"  data-studentId="{{item.dayTwo.studentId}}" data-scheduleId="{{item.dayTwo.id}}" bindtap='toDetail'>
     <text>{{item.dayTwo.text}}</text>
-    <text wx:if="{{item.dayTwo.studentName}}">{{item.dayTwo.studentName}}</text>
+    <text wx:if="{{item.dayTwo.name}}">{{item.dayTwo.name}}</text>
     </view>
     <view class="flex-td" data-teacherId="{{item.dayThree.teacherId}}"  data-studentId="{{item.dayThree.studentId}}" data-scheduleId="{{item.dayThree.id}}" bindtap='toDetail'>
     <text>{{item.dayThree.text}}</text>
@@ -26,7 +26,7 @@
     </view>
     <view class="flex-td" data-teacherId="{{item.daySeven.teacherId}}"  data-studentId="{{item.daySeven.studentId}}" data-scheduleId="{{item.daySeven.id}}" bindtap='toDetail'>
     <text>{{item.daySeven.text}}</text>
-    <text wx:if="{{item.daySeven.studentName}}">{{item.daySeven.studentName}}</text>
+    <text wx:if="{{item.daySeven.name}}">{{item.daySeven.name}}</text>
     </view>
   </view>
 </view>

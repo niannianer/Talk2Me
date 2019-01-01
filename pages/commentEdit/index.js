@@ -22,7 +22,8 @@ Page({
     teacherId: '',
     studentId: '',
     scheduleId: '',
-    commentType: 0
+    commentType: 0,
+    title: ''
   },
 
   /**
@@ -52,7 +53,7 @@ Page({
         userId: role == 2 ? that.data.studentId : that.data.teacherId,
         content: that.data.writeText,
         commentType: that.data.commentType,
-        title: '',
+        title: that.data.title,
         scheduleId: that.data.scheduleId
       }
       RequestMessage.request({
@@ -62,7 +63,7 @@ Page({
         success: function (res) {
           if (res.data.status != 1) {
             wx.showToast({
-              title: '提交失败',
+              title: '提交失败,请稍后再试',
               icon: 'none'
             })
           } else {
@@ -71,14 +72,14 @@ Page({
               icon: 'none',
               duration: 2000,
               success: function () {
-                that.getData()
+                wx.navigateBack()
               }
             })
           }
         },
         fail: function () {
           wx.showToast({
-            title: '提交失败',
+            title: '提交失败,请稍后再试',
             icon: 'none'
           })
         }
@@ -104,6 +105,12 @@ Page({
     this.setData({
       writeText: val,
       textLength: len>0?len:0
+    })
+  },
+  //特点文字输入
+  titleInput(e){
+    this.setData({
+      title: e.detail.value
     })
   }
 })

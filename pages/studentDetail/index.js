@@ -12,6 +12,7 @@ Page({
     scheduleId: '',
     info: {},
     source: '',
+    commentNum: {},
     commentList: [{
       title: '风趣，知识丰富',
       name: '王晓晓',
@@ -64,26 +65,34 @@ Page({
       scheduleId: options.scheduleId || ''
     })
     this.getStudentInfo()
-    this.getStudentComment()
   },
-  // 获取教师详情
+  onShow: function(){
+  },
+  // 获取学生详情
   getStudentInfo: function () {
     const that = this
     RequestMessage.request({
-      url: 'teacherDetail',
+      url: 'studentDetail',
       data: {
-        sysUserId: that.data.teacherId
+        sysUserId: that.data.studentId
       },
       method: 'get',
       success: function (res) {
         if (res.data.status != 1) {
           return wx.showToast({
             title: '加载失败',
-            duration: 2000
+            duration: 2000,
+            icon: 'none'
           })
         }
+        const content = res.data.content
         that.setData({
-          info: res.data.content
+          info: content.studentdetail,
+          commentList: content.commnets || [],
+          commentNum: {
+            badcomments: content.badcomments,
+            goodcomment: content.goodcomment
+          }
         })
       },
       fail: function (res) {
@@ -101,14 +110,14 @@ Page({
       },
       method: 'get',
       success: function (res) {
-        if (res.data.status != 1) {
+        if (res.data.status != 0) {
           return wx.showToast({
             title: '加载失败',
             duration: 2000
           })
         }
         that.setData({
-          commentList: res.data.content
+          commentList: res.data.content || []
         })
       },
       fail: function (res) {

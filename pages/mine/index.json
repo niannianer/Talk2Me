@@ -6,6 +6,7 @@
   "enablePullDownRefresh": true,
   "backgroundColor": "#F0F2F5",
   "usingComponents": {
-    "component-mineTeacher": "/components/mineTeacher/index"
+    "component-mineTeacher": "/components/mineTeacher/index",
+    "component-mineStudent": "/components/mineStudent/index"
   }
 }

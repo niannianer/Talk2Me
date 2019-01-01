@@ -15,65 +15,34 @@ Page({
    * 页面的初始数据
    */
   data: {
+    role: 1,
     choseDate: {},
     showError: false,
-    courseList: [{
-      dayOne: {
-        text: '周一'
-      },
-      dayTwo: {
-        text: '周二'
-      },
-      dayThree: {
-        text: '周三'
-      },
-      dayFour: {
-        text: '周四'
-      },
-      dayFive: {
-        text: '周五'
-      },
-      daySix: {
-        text: '周六'
-      },
-      daySeven: {
-        text: '周日'
-      }
-    }, {
-      dayOne: {},
-      dayTwo: {},
-      dayThree: {},
-      dayFour: {},
-      dayFive: {},
-      daySix: {},
-      daySeven: {}
-    }, {
-        dayOne: {},
-        dayTwo: {},
-        dayThree: {},
-        dayFour: {},
-        dayFive: {},
-        daySix: {},
-        daySeven: {}
-    }, {
-        dayOne: {},
-        dayTwo: {},
-        dayThree: {},
-        dayFour: {},
-        dayFive: {},
-        daySix: {},
-        daySeven: {}
-    }]
+    courseList: [],
+    initCourseList: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setInitCourseList()
+    const that = this
+    const cacheMessage = CacheMessage.getInstance()
+    that.setData({
+      role: cacheMessage.role
+    })
   },
-  // 获取课程表数据
-  getSchedule: function () {
+  getSchedule: function(){
+    const that = this
+    if(that.data.role == 1){
+      that.getStudentSchedule()
+    }else{
+      that.getTeacherSchedule()
+    }
+  },
+  // 获取老师课程表数据
+  getTeacherSchedule: function () {
     const that = this
     let param = {
       startDate: that.data.choseDate.startDate + ' 00:00:00',
@@ -95,6 +64,33 @@ Page({
           this.showError = false
           that.formatCourse(res.data.content)
         }
+      },
+      fail: function () {
+        this.showError = true
+        wx.showToast({
+          title: '获取失败，请稍后再试',
+          icon: 'none'
+        })
+      }
+    })
+  },
+  // 获取学生课程表数据
+  getStudentSchedule: function () {
+    const that = this
+    let param = {
+      page:0,
+      size: 100,
+      startDate: that.data.choseDate.startDate + ' 00:00:00',
+      endDate: that.data.choseDate.endDate + ' 23:59:59',
+      // teacherId: '',
+      userId: CacheMessage.getInstance().studentId
+    }
+    RequestMessage.request({
+      url: 'scheduleStudentQuery',
+      data: param,
+      success: function (res) {
+        this.showError = false
+        that.formatCourse(res.data.content)
       },
       fail: function () {
         this.showError = true
@@ -143,7 +139,19 @@ Page({
   // 格式化数组
   formatCourse: function (list) {
     const that = this
-    if (!list) {
+    if (!list || !list.length) {
+      const courseList = that.data.courseList
+      courseList.forEach((item,index) => {
+        if(index!=0){
+          for (const key in item){
+            item[key] = {}
+          }
+        }
+      })
+      console.log(courseList)
+      that.setData({
+        courseList
+      })
       return
     }
     list.forEach(item => {
@@ -157,6 +165,12 @@ Page({
       let obj = item
       // obj.text = startTime + '-' + endTime
       obj.text = (item.courseName || '').split('/')[0]
+      if(that.data.role==1){
+        obj.name = `@${item.teacherName}`
+      }else{
+        obj.name = `@${item.studentName}`
+      }
+      
       let courseList = that.data.courseList
       if (hourse < 12) {
         courseList[1][weekKey] = obj
@@ -223,5 +237,57 @@ Page({
     }
     this.getSchedule()
   },
-
+  // 设置课程表初始数据
+  setInitCourseList: function(){
+    const that = this
+    that.setData({
+      courseList: [{
+        dayOne: {
+          text: '周一'
+        },
+        dayTwo: {
+          text: '周二'
+        },
+        dayThree: {
+          text: '周三'
+        },
+        dayFour: {
+          text: '周四'
+        },
+        dayFive: {
+          text: '周五'
+        },
+        daySix: {
+          text: '周六'
+        },
+        daySeven: {
+          text: '周日'
+        }
+      }, {
+        dayOne: {},
+        dayTwo: {},
+        dayThree: {},
+        dayFour: {},
+        dayFive: {},
+        daySix: {},
+        daySeven: {}
+      }, {
+        dayOne: {},
+        dayTwo: {},
+        dayThree: {},
+        dayFour: {},
+        dayFive: {},
+        daySix: {},
+        daySeven: {}
+      }, {
+        dayOne: {},
+        dayTwo: {},
+        dayThree: {},
+        dayFour: {},
+        dayFive: {},
+        daySix: {},
+        daySeven: {}
+      }]
+    })
+  }
 })

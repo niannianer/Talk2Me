@@ -11,19 +11,23 @@
   <scroll-view scroll-y="true" class='list-wrap'>
     <view class='t-item' wx:for="{{teacherList}}" wx:key="{{index}}" wx:for-item="item" data-id="{{item.id}}" bindtap='goDetail'>
       <view class='i-left'>
-      <image class='avatar-img' src="{{item.avatar}}"></image>
+      <image class='avatar-img' src="{{item.avatar || '../../images/avatar.png'}}"></image>
       </view>
       <view class='i-right'>
         <view class='name'>{{item.username}}</view>
         <view class="r-info">{{item.firstLanguage}}</view>
-        <view class='star-info'>
-          <image src="../../images/star.jpg" class='star'></image>
-          <image src="../../images/star.jpg" class='star'></image>
-          <image src="../../images/star.jpg" class='star'></image>
-          <image src="../../images/star.jpg" class='star'></image>
-      </view>
-      <view class='r-info'>Had lessons:{{item.lessons}}min</view>
-      <view class='r-info'>Price:{{item.price}}USD/min</view>
+        <block wx:if="{{item.courses.length}}">
+          <view class='star-info' wx:for="{{item.courses}}" wx:key="{{index}}" wx:for-item="course">
+            <text class='course-name'>英语</text>
+            <view>
+              <view class='r-info'>授课时长:{{item.lessons}}min</view>
+              <view class='r-info'>单价:{{item.price}}USD/min</view>
+            </view>
+          </view>
+        </block>
+        <view wx:else class='star-info'>
+          暂无课程
+        </view>
       </view>
     </view>
   </scroll-view>

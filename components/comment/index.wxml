@@ -1,19 +1,23 @@
 <!--components/comment/index.wxml-->
-<view class='tc-comment'>
+<wxs src="./index.wxs" module="tools" />
+
+<view class='tc-comment flexcol'>
     <view class='cm-level'>
-      <text>好评 12条</text>
-      <text>中评 12条</text>
-      <text>差评 12条</text>
+      <view class='{{activeIndex==0?"level-active":"level-item"}}' data-index="0" bindtap='tabEvent'>全部</view>
+      <view class='{{activeIndex==1?"level-active":"level-item"}}' data-index="1" bindtap='tabEvent'>好评({{commentNum.goodcomment || 0}})</view>
+      <!-- <view class='{{activeIndex==3?"level-active":"level-item"}}' data-index="3" bindtap='tabEvent'>中评(12)</view> -->
+      <view class='{{activeIndex==2?"level-active":"bad-item"}}' data-index="2" bindtap='tabEvent'>差评({{commentNum.badcomments || 0}})</view>
     </view>
     <view class='comment-list'>
-     <view class='cm-li' wx:for="{{commentList}}" wx:key="index">
+     <view class='cm-li' wx:for="{{lists}}" wx:key="index">
       <view class='total-text'>{{item.title}}</view>
       <view class='ndt'>
         <text>{{item.name}}</text><view class='split'>|</view>
         <text>{{item.time}}</text><view class='split'>|</view>
-        <text>{{item.type}}</text>
+        <text>{{item.courseName}}</text>
       </view>
-      <view class='desc'>{{item.comment}}</view>
+      <view class='desc'>{{item.content}}</view>
      </view>
     </view>
+    <component-empty class="empty-component" wx:if="{{lists.length<1}}"></component-empty>
   </view>

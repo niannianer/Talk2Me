@@ -7,10 +7,13 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isLoading: true,
+    active: 0,
     teacherId: '',
     scheduleId: '',
     info: {},
     source: '',
+    commentNum: {},
     commentList: [{
       title: '风趣，知识丰富',
       name: '王晓晓',
@@ -57,15 +60,19 @@ Page({
   onLoad: function (options) {
     console.log(options)
     this.setData({
-      teacherId: options.tId,
+      teacherId: options.tId || '',
       source: options.source || '',
       scheduleId: options.scheduleId || ''
     })
     this.getTeacherInfo()
+    this.getTeacherComment()
   },
   // 获取教师详情
   getTeacherInfo: function(){
     const that = this
+    if (!that.data.teacherId){
+      return
+    }
     RequestMessage.request({
       url: 'teacherDetail',
       data: {
@@ -73,15 +80,33 @@ Page({
       },
       method: 'get',
       success: function (res) {
-        if(res.data.status != 1){
-          return wx.showToast({
-            title: '加载失败',
-            duration: 2000
+        if(res.data.status == 1){
+          that.setData({
+            info: res.data.content,
+            isLoading: false
           })
         }
-        that.setData({
-          info: res.data.content
-        })
+      },
+      fail: function (res) {
+
+      }
+    })
+  },
+  // 获取学生对该老师的评价
+  getTeacherComment: function () {
+    const that = this
+    RequestMessage.request({
+      url: 'commentQuery',
+      data: {
+        userId: that.data.teacherId
+      },
+      method: 'get',
+      success: function (res) {
+        if (res.data.status == 1) {
+          that.setData({
+            commentList: res.data.content || []
+          })
+        }
       },
       fail: function (res) {
 
@@ -93,6 +118,11 @@ Page({
     const that = this
     wx.navigateTo({
       url: `/pages/courseEdit/index?teacherId=${that.data.teacherId}`,
+    })
+  },
+  tabEvent: function(e){
+    this.setData({
+      active: e.detail
     })
   },
   // 去评价

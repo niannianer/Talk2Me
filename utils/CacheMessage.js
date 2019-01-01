@@ -6,6 +6,7 @@ export default class CacheMessage {
   guideIsLoading = true
   teacherId = '402880e666b60d110166b6734fa90004'
   studentId = '402880e6674b097a01674b10b1600000'
+  role = 1
   iv = '2029485746583574'
   at = ''
   rt = ''
@@ -51,6 +52,13 @@ export default class CacheMessage {
 
   get teacherId() {
     return wx.getStorageSync('teacherId')
+  }
+  set role(value) {
+    CacheMessage.role = value
+  }
+
+  get role() {
+    return wx.getStorageSync('role')
   }
   set studentId(value) {
     CacheMessage.studentId = value

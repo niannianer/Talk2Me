@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "教师详情",
   "usingComponents": {
-    "component-comment": "/components/comment/index"
+    "component-comment": "/components/comment/index",
+    "component-tab": "/components/tab/index"
   }
 }

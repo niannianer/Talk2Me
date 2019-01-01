@@ -1,4 +1,4 @@
-<!--component/no-resume/no-resume.wxml-->
+<!--component/empty/index.wxml-->
 <view class='noresume-wrap'>
   <view class="main {{nomargintop ? 'nomargintop' : ''}}">
     <view>

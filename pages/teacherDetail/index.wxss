@@ -10,6 +10,11 @@
   color: #333;
   font-weight: bold;
 }
+.tc-detail{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
 .tc-detail .dl-item{
   background: #fff;
   margin-bottom: 20rpx;
@@ -33,10 +38,9 @@
   flex-direction: column;
 }
 .tc-detail .avatry{
-  background: red;
-  width: 180rpx;
-  height: 180rpx;
-  border-radius: 50%;
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 8rpx;
 }
 .tc-detail .star-info{
   display: flex;
@@ -80,10 +84,13 @@
   padding: 32rpx;
 }
 .tc-detail .title{
-  font-size: 32rpx;
+  font-size: 28rpx;
   font-weight: bold;
-  color: #333;
+  color: #999;
   margin: 20rpx 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 .tc-detail .desc{
   font-size: 30rpx;
@@ -100,12 +107,25 @@
   font-size: 24rpx;
 }
 .comment-btn{
-  background: blue;
-  color: #fff;
-  font-size: 30rpx;
-  width: 140rpx;
+  background: #fff;
+  color: #666;
+  font-size: 24rpx;
+  width: 110rpx;
   padding: 0;
-  height: 60rpx;
-  line-height: 60rpx;
+  height: 50rpx;
+  line-height: 50rpx;
   margin: 0;
+  border: 1px solid #ddd;
+  border-radius: 50rpx;
+}
+
+.comment-item{
+  background:#fff;
+  padding: 0 32rpx 20rpx;
+}
+
+.comment-panel{
+  flex-grow: 1;
+  background:#fff;
+  padding: 0 32rpx 20rpx;
 }

@@ -10,6 +10,11 @@
   color: #333;
   font-weight: bold;
 }
+.tc-detail{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
 .tc-detail .dl-item{
   background: #fff;
   margin-bottom: 20rpx;
@@ -104,12 +109,24 @@
 }
 
 .comment-btn{
-  background: blue;
-  color: #fff;
-  font-size: 30rpx;
-  width: 140rpx;
+  background: #fff;
+  color: #666;
+  font-size: 24rpx;
+  width: 110rpx;
   padding: 0;
-  height: 60rpx;
-  line-height: 60rpx;
+  height: 50rpx;
+  line-height: 50rpx;
   margin: 0;
+  border: 1px solid #ddd;
+  border-radius: 50rpx;
+}
+
+.comment-item{
+  flex-grow: 1;
+  background:#fff;
+  padding: 20rpx 32rpx;
+}
+
+.flexcol{
+  flex-grow: 1;
 }

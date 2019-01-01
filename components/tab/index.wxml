@@ -1,0 +1,8 @@
+<!--components/tab/index.wxml-->
+<view class='tab-wrap'>
+  <view wx:for="{{detailTab}}" wx:key="{{index}}" class="tab-item" data-index="{{item.value}}" bindtap='tabEvent'>
+    <text class='text-active' wx:if="{{active==item.value}}">{{item.text}}</text>
+    <text wx:else>{{item.text}}</text>
+    <view class='tab-line' wx:if="{{active==item.value}}"></view>
+  </view>
+</view>

@@ -8,8 +8,11 @@
       </view>
     </view>
   </view>
-  <view>
-    <textarea class="text-box" placeholder="请分享您对该服务商的合作评价，内容务必与真实情况相符。" bindinput='textInput'></textarea>
+  <view class="write-content">
+  <view class="text-title">课程特点</view>
+  <input type='text' placeholder='请输入课程特点' bindinput='titleInput' class='title-input'/>
+  <view class="text-title">详细评价</view>
+    <textarea class="text-box" placeholder="请分享您对该课程评价，内容务必与真实情况相符。" bindinput='textInput'></textarea>
     <view>
       <view class="bom-text" wx:if="{{!writeText}}">评价12字以上</view>
       <view class="bom-text" wx:if="{{textLength}}">还有{{textLength}}字就可以发表了</view>

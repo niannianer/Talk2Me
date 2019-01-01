@@ -1,4 +1,4 @@
-// component/no-resume/no-resume.js
+// component/empty/empty.js
 Component({
   /**
    * 组件的属性列表
@@ -45,9 +45,11 @@ Component({
           }
         }
       }
-      that.setData({
-        param: datas[that.data.page]
-      })
+      if (that.data.page){
+        that.setData({
+          param: datas[that.data.page]
+        })
+      }
     }
   }
 })

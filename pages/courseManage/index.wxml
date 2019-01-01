@@ -1,5 +1,5 @@
 <!--pages/courseManage/index.wxml-->
-<view class='course-manage'>
+<view class='course-manage' wx:if="{{courseList.length>0}}">
   <view class='item title'>
     <view class='left'>课程名称</view>
     <view class='right'>价格</view>

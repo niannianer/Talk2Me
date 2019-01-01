@@ -1,23 +1,22 @@
-/* pages/register/index.wxss */
-.register{
-  padding: 30rpx;
+/* pages/teacherEdit/index.wxss */
+.teacher-edit{
+  padding: 20rpx 30rpx 30rpx;
   font-size: 30rpx;
   background: #fff;
 }
 
-.register .upload-img{
+.teacher-edit .upload-img{
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.register .upload-inner{
-  width: 180rpx;
-  height: 180rpx;
+.teacher-edit .upload-inner{
+  width: 160rpx;
+  height: 160rpx;
   border-radius: 50%;
-  background: blue;
   margin-bottom: 20rpx;
 }
-.register .r-item{
+.teacher-edit .r-item{
   display: flex;
   flex-direction: row;
   min-height: 88rpx;
@@ -25,36 +24,62 @@
   border-bottom: 2rpx solid #eee;
   font-size: 30rpx;
 }
-.register .i-left{
+.teacher-edit .i-left{
   width: 180rpx;
   flex-grow: 0;
   flex-shrink: 0;
+  color: #999;
 }
-.register .i-right{
+.teacher-edit .i-right{
   flex-grow: 1;
   display:flex;
   align-items:center;
 }
-.register .r-item.r-self-desc{
+.teacher-edit .r-item.r-self-desc{
   display: flex;
   flex-direction: column;
 }
-.register .r-textarea{
+.teacher-edit .r-textarea{
   border: 2rpx solid #eee;
-  height: 240rpx;
+  height: 200rpx;
   text-align: left;
   padding: 6rpx 10rpx;
   width: 100%;
 }
-.register .sub-btn{
-  height: 80rpx;
-  line-height: 80rpx;
-  background: #4f6;
-  font-size: 30rpx;
-  margin: 30rpx 0;
+.teacher-edit .sub-btn{
+  height: 88rpx;
+  line-height: 88rpx;
+  background: #4164E1;
+  font-size: 32rpx;
+  margin: 32rpx 0;
   border-radius: 4rpx;
   color: #fff;
 }
-.placeholder-class{
-  color: #777;
+.teacher-edit .i-right.arrow-right{
+  position: relative;
+  text-align: right;
+}
+/* .teacher-edit .i-right:after {
+  content: "";
+  display: block;
+  width: 14rpx;
+  height: 14rpx;
+  border-top: 2rpx solid #bbb;
+  border-left: 2rpx solid #bbb;
+  transform-origin: 50%;
+  transform: rotate(135deg);
+  position: absolute;
+  top: 36rpx;
+  right: 10rpx;
+} */
+.picker-wrap{
+  width: 100%;
+  height: 100%;
+}
+.picker{
+  width: 100%;
+  height: 100%;
+}
+.placeholder{
+  color: #bbb;
 }

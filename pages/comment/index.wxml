@@ -1,2 +1,4 @@
 <!--pages/comment/index.wxml-->
-<component-comment commentList="{{commentList}}"></component-comment>
+<view class='comment-manage'>
+  <component-comment commentList="{{commentList}}"></component-comment>
+</view>

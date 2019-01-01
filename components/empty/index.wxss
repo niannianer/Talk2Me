@@ -1,11 +1,10 @@
-/* component/no-resume/no-resume.wxss */
+/* component/empty/index.wxss */
 
 .noresume-wrap {
-  height: 100%;
   width: 100%;
   background: #fff;
-  position: absolute;
-  top: 0;
+  flex: 1;
+  position: relative;
 }
 
 .main {

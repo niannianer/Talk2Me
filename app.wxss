@@ -12,6 +12,12 @@ page{
   background: #f8f8f8;
   min-height: 100%;
   font-size: 30rpx;
+  display: flex;
+  flex-direction: column;
+}
+.flexcol{
+  display: flex;
+  flex-direction: column;
 }
 .panel{
   background:#fff;
@@ -73,4 +79,10 @@ page{
 .gif {
   height: 240rpx;
   width: 240rpx;
+}
+
+component-empty{
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }

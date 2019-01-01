@@ -30,12 +30,6 @@
     "selectedColor": "#4164e1",
     "list": [
       {
-        "selectedIconPath": "images/menu-zrc1.png",
-        "iconPath": "images/menu-zrc.png",
-        "pagePath": "pages/stutends/index",
-        "text": "学生"
-      },
-      {
         "selectedIconPath": "images/menu-hxr1.png",
         "iconPath": "images/menu-hxr.png",
         "pagePath": "pages/teacherList/index",

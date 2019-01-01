@@ -12,13 +12,16 @@ export default class RequestMessage {
     userinfoSave: 'user/userinfo/save',//保存个人信息
     bookingschedule: 'secure/course/bookingschedule/save', //预定课程
     teacherList: 'user/list/teacher/query', //教师列表
-    teacherDetail: 'user/teacher/query',
+    teacherDetail: 'user/teacher/query',//教师详情
+    studentDetail: 'user/teacher/student/query',//学生详情
     bookingcourseList: 'secure/course/bookingcourse/query',
     courseLists: 'management/coursetype/query', //课程种类
     userType: 'user/role/list/query', //用户类型
     scheduleQuery: 'secure/course/bookedschedule/query',
+    scheduleStudentQuery: 'secure/course/bookedscheduleOfStudent/query',//学生查询课程表
     commentSave: 'secure/course/comment/save',//保存评价
-    commentQuery: 'commemts/query'//评价查询
+    commentQuery: 'secure/course/commemts/query',//评价查询
+    uploadFile: 'http://holer.org:65115/talk2me/upload' // 上传文件
     
   }
 

@@ -1,32 +1,32 @@
 <!--pages/teacherDetail/index.wxml-->
+<wxs src="./index.wxs" module="tools" />
+
+<import src="../../templates/loading/loading.wxml" />
+<template is="loading" wx:if="{{isLoading}}"/>
+
 <view class='tc-detail'>
   <view class='base-info dl-item'>
     <view class='b-left'>
       <view class='name'>{{info.realName}}</view>
       <view class='four-info'>
-        {{info.gender}}<view class='split'>|</view>
+        {{tools.genderDesc(info.gender)}}<view class='split'>|</view>
         55<view class='split'>|</view>
         {{info.nationnlity}}<view class='split'>|</view>
         {{info.firstLanguage}}
       </view>
       <view class='star-info'>
-        <image src="/images/star.jpg" class='star'></image>
-        <image src="/images/star.jpg" class='star'></image>
-        <image src="/images/star.jpg" class='star'></image>
-        <image src="/images/star.jpg" class='star'></image>
+       <text wx:if="{{info.rate}}">好评率{{item.rate}}</text>
+        <text wx:else>暂无评论</text>
       </view>
       <view class='course-info'>
         <view class='course-title'>授课时间</view>
-        <view class='course-item'>
-          <text class='lang-text'>英语：</text>256小时
-        </view>
-        <view class='course-item'>
-          <text class='lang-text'>西班牙：</text>256小时
+        <view class='course-item' wx:for="{{info.courses}}" wx:key="{{index}}">
+          <text class='lang-text'>{{item.subjectTypes[0].nameZh}}：</text>256小时
         </view>
       </view>
     </view>
     <view class='b-right'>
-      <image class='avatry'></image>
+      <image class='avatry' src="{{avatar || '../../images/avatar.png'}}"></image>
       <view class='btn-box'>
         <button class="b-btn" bindtap='bookingschedule'>预订</button>
         <button class="b-btn">收藏</button>
@@ -43,25 +43,26 @@
         <view></view>
     </view>
   </view>
-  <view class='dl-item'>
-  <view class='title'>
-    <text>评价</text>
-    <button class="comment-btn" wx:if="{{source=='course'}}" bindtap='toComment'>去评价</button>
+  <view class='comment-item'>
+    <component-tab bind:tabEvent="tabEvent"></component-tab>
   </view>
-  <component-comment commentList="{{commentList}}"></component-comment>
+  <view class='comment-panel' wx:if="{{active==1}}">
+    <view class='title'>
+      <button class="comment-btn" wx:if="{{source=='course'}}" bindtap='toComment'>去评价</button>
+    </view>
+    <component-comment class="flexcol" commentList="{{commentList}}"></component-comment>
   </view>
-  <view class='line-time dl-item'>
-    <view class='title'>在线时间</view>
+  <view class='line-time' wx:if="{{active==0}}">
     <view class="panel">
-  <view class="flex-row" wx:for="{{courseList}}" wx:key="index">
-    <text class="flex-row">{{item.dayOne}}</text>
-    <text class="flex-row">{{item.dayTwo}}</text>
-    <text class="flex-row">{{item.dayThree}}</text>
-    <text class="flex-row">{{item.dayFour}}</text>
-    <text class="flex-row">{{item.dayFive}}</text>
-    <text class="flex-row">{{item.daySix}}</text>
-    <text class="flex-row">{{item.daySeven}}</text>
-  </view>
-</view>
+      <view class="flex-row" wx:for="{{courseList}}" wx:key="index">
+        <text class="flex-row">{{item.dayOne}}</text>
+        <text class="flex-row">{{item.dayTwo}}</text>
+        <text class="flex-row">{{item.dayThree}}</text>
+        <text class="flex-row">{{item.dayFour}}</text>
+        <text class="flex-row">{{item.dayFive}}</text>
+        <text class="flex-row">{{item.daySix}}</text>
+        <text class="flex-row">{{item.daySeven}}</text>
+      </view>
+    </view>
   </view>
 </view>
